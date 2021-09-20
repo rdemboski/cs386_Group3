@@ -1,7 +1,6 @@
 ### Introduction
-(Name Undecided) is going to be a party/event planning website. A user (logged into an account for the website) can be a host or an attendee. Hosts can post parties/events happening in the future with the category, description, and other details about their event. Attendees can browse and RSVP to these posted parties and events. There is also a rating system in place where guests who have verified that they attended a party listed on the website can rate the host and leave reviews about how they did with hosting. Our product makes it easier than ever to host and attend parties/events for all people of all age categories. It is a valuable resource for aspiring party hosts and guests alike.
+(Name Undecided) is going to be a party/event planning website. A user (logged into an account for the website) can be a host or an attendee. Hosts can post parties/events happening in the future with the category, description, and other details about their event. Attendees can browse and RSVP to these posted parties and events. There is also a rating system in place where guests who have verified that they attended a party listed on the website can rate the host and leave reviews about how they did with hosting. Our product makes it easier than ever to host and attend parties/events for all people of all age categories. It is a valuable resource for aspiring party hosts and guests alike. Many people find it hard to manage and organize invitations, and struggle to spread the word for their events. This product is guaranteed to help fix that.
 
-People find it hard managing invitations so this website is going to help fix that.
 
 ### Initial value proposition and consumer segments
 Value Proposition: Host and attend parties done the safe and easy way.
@@ -11,6 +10,7 @@ Demographic: Teenager/Young Adults mainly, Probably in school
 Psychographic: People who like to party
 Want: A easy way to plan and attend events
 Anyone who is looking to attend or host an event/party/gathering. Good for individuals looking to meet people, companies, families, college students and more.
+
 
 ### Interview Summary
 
