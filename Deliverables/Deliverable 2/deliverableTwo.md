@@ -277,3 +277,5 @@ This will all be tested by first prototyping, then implementing. Once it is impl
 
 **8. Trello**
 ![Trello](trello.png)
+
+https://trello.com/b/97yaPgQ9/general-problems
