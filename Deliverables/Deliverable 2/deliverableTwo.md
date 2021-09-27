@@ -198,19 +198,82 @@ This will all be tested by first prototyping, then implementing. Once it is impl
 			1. Actor: 
 				- User
 			2. Description: 
-				- The user can view information from the event. Below the information, there is an option to give the event up to 5 stars. Users can also leave a comment and read comments left by other user
+				- The user can view information from the event. Below the information, there is an option to give the event up to 5 stars. Users can also leave a comment and read comments left by other user.
+			3. Pre-Conditions:
+				- 3.1 You must be registered on the site
+				- 3.2 You have to have attended the event to rate it
+			4. Main Flow
+				- 4.1 The use case begins when the user opens the page of the event they wish to rate and have attended.
+				- 4.2 The user can view all provided information about the event and other ratings made by other attendees
+				- 4.3 User can leave a 5 star review and any specific comments they wish to add
+				- 4.4 User can then use the nav bar to return to the home page
+				- 4.5 Use Case ends
+			5. Alternative Flow:
+				- N/A
+			6. Key Scenarios:
+				- 6.1 Make a /5 star review, step 3
+				- 6.2 Add/write any comments they wish to, step 3
+			7. Post Conditions:
+				- 7.1 Future users know how the host did with the event
+				- 7.2 The host gets feedback on where to improve and adjust
+				- 7.3 Adds a layer of safety for users to make sure they attend events from only reputable hosts
+			8. Special Requirements:
+				- [SpReq:WC-1] The user attended the event.
+
+
 		
 		
 		Use Case UI Sketch:
 	
 		![Rate an Event](rateEvent.jpg)
-	
-	
-	### THIS NEEDS TO BE FINISHED 
 
+
+		- Use Case: Access Support System
+			1. Actor
+				- Attendee
+				- Host
+				- Non-Account holders
+			2. Description:
+			 	- User can visit the support page and seek support from the development team
+			3. Pre-Conditions: 
+				- N/A
+			4. Main Flow:
+				- The use case begins when the user opens the support page.
+				- User can view SocialSquare contact information
+				- Web page provides a form that can be filled out to be contacted through email
+				- User can select live chat option to get immediate support
+				- User can then use nav bar to return to home page
+				- Use Case ends
+			5. Alternative Flow:
+				- If in step 4 of the main flow the system:
+					- Opens up a pop up window with a live chat with a support employee
+					- User can communicate with the employee to seek support
+					- When all support is done user clicks out of window
+					- Returns to the main event page
+					- The use case resumes at step 5
+			6. Key Scenarios:
+				- Click on an livechat, step 4
+			7. Post Conditions:
+				- N/A
+			8. Special Requirements:
+				- N/A
+
+
+		Use Case UI Sketch:
 		
-
-	### Need one more use case description and UI sketch - Brett
-
+		![Access Support System](viewSupport.png)
 
 
+**7. Use cases**
+
+
+![Use Case 1](userStories1.png)
+
+
+![Use Case 2](userStories2.png)
+
+
+![Use Case 3](userStories3.png)
+
+**8. Trello**
+![Trello](trello.png)
