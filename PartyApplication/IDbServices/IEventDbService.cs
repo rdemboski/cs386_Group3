@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace PartyApplication.IDbServices
 {
-    public interface IPartyDbService
+    public interface IEventDbService
     {
-        Task<IEnumerable<Party>> GetPartiesAsync(string query);
-        Task<Party> GetPartyAsync(string id);
-        Task AddPartyAsync(Party item);
+        Task<List<Event>> GetPartiesAsync(string query);
+        Task<Event> GetPartyAsync(string id);
+        Task AddPartyAsync(Event item);
         Task DeletePartyAsync(string id);
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PartyApplication.Model
 {
-    public class Party
+    public class Event
     {
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
