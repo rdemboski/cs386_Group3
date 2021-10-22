@@ -1,0 +1,34 @@
+﻿@model PartyApplication.Model.Account
+
+@{
+    ViewData["Title"] = "NewAccount";
+
+}
+
+<h1>CreateAccount</h1>
+
+<form method="POST" action="/account/new">
+    <label for="username">Username:</label><br />
+    <input type="text" id="username" name="username" /><br />
+
+    <label for="name">Name:</label><br />
+    <input type="text" id="name" name="name" /><br />
+
+    <label for="passcode">Passcode:</label><br />
+    <input type="password" id="passcode" name="passcode" /><br />
+
+    <label for="location">Location:</label><br>
+    <input type="text" id="location" name="location" /><br />
+
+    <label for="zipcode">Zipcode:</label><br>
+    <input type="text" id="zipcode" name="zipcode" /><br />
+
+    <label for="host">Do you want to be a host?</label><br />
+    @Html.CheckBox("host", false)
+
+    <input type="hidden" id="followers" name="followers" value="0" />
+    <input type="hidden" id="following" name="following" value="0" />
+
+    <input type="submit" value="Submit" />
+
+</form>
