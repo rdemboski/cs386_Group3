@@ -28,13 +28,13 @@ namespace PartyApplication.Controllers
 
         [HttpPost]
         [Route("account/new")]
-        public ActionResult NewAccount([FromBody] Account account)
+        public ActionResult NewAccount([FromForm] Account account)
         {
             account.Id = account.Username;
             if (account != null)
              {
                 _accountDbService.AddAccountAsync(account);
-                return Ok();
+                return View("GetAccount", account);
             }
             return StatusCode(StatusCodes.Status500InternalServerError);
         }
@@ -75,6 +75,13 @@ namespace PartyApplication.Controllers
             return View();
         }
 
+        [HttpGet]
+        [Route("account/createaccount")]
+
+        public IActionResult CreateAccount()
+        {
+            return View();
+        }
 
     }
 }
