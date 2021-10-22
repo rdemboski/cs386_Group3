@@ -1001,23 +1001,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ryand\\.nuget\\packages\\": {},
+    "C:\\Users\\ShayneGamingPC\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ryand\\source\\repos\\PartyApplication\\PartyApplication\\PartyApplication.csproj",
+      "projectUniqueName": "C:\\Users\\ShayneGamingPC\\source\\repos\\cs386_Group3\\PartyApplication\\PartyApplication\\PartyApplication.csproj",
       "projectName": "PartyApplication",
-      "projectPath": "C:\\Users\\ryand\\source\\repos\\PartyApplication\\PartyApplication\\PartyApplication.csproj",
-      "packagesPath": "C:\\Users\\ryand\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ryand\\source\\repos\\PartyApplication\\PartyApplication\\obj\\",
+      "projectPath": "C:\\Users\\ShayneGamingPC\\source\\repos\\cs386_Group3\\PartyApplication\\PartyApplication\\PartyApplication.csproj",
+      "packagesPath": "C:\\Users\\ShayneGamingPC\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ShayneGamingPC\\source\\repos\\cs386_Group3\\PartyApplication\\PartyApplication\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ryand\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ShayneGamingPC\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
