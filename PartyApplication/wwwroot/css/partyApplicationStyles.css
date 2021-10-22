@@ -1,6 +1,9 @@
 ﻿@charset "utf-8";
 /* CSS Document */
 
+body{
+    margin: 0px;
+}
 
 /* Nav Bar Css */
 
@@ -24,6 +27,7 @@ nav {
     display: flex;
     justify-content: space-around;
     width: 30%;
+    padding-left: 35%;
 }
 
     .navLinks a {

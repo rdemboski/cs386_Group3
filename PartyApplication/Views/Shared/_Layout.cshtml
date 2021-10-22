@@ -21,7 +21,7 @@
                 <a href="https://localhost:44300">Home</a>
             </li>
             <li>
-                <a href="#">Events</a>
+                @Html.ActionLink("Events", "GetParties", "Event")
             </li>
             <li>
                 <a href="#">Support</a>
@@ -33,11 +33,6 @@
                 <a href="#">Placeholder</a>
             </li>
         </ul>
-        <a href="#" class="toggleButton">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </a>
     </nav>
 </header>
 <body>
