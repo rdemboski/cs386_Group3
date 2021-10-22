@@ -1,0 +1,47 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>SocialSquare</title>
+    <link href="~/css/partyApplicationStyles.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+</head>
+<header>
+    <nav>
+        <h2 class="logo-style">Social Square</h2>
+        <ul class="navLinks">
+            <li>
+                <a href="https://localhost:44300">Home</a>
+            </li>
+            <li>
+                <a href="#">Events</a>
+            </li>
+            <li>
+                <a href="#">Support</a>
+            </li>
+            <li>
+                @Html.ActionLink("Login", "LoginPage", "Account")
+            </li>
+            <li>
+                <a href="#">Placeholder</a>
+            </li>
+        </ul>
+        <a href="#" class="toggleButton">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+    </nav>
+</header>
+<body>
+
+    @RenderBody()
+</body>
+</html>

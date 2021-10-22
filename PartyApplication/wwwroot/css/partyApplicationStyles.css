@@ -1,0 +1,58 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+
+/* Nav Bar Css */
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: #880052;
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo-style {
+    color: aliceblue;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 30px;
+}
+
+.navLinks {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+}
+
+    .navLinks a {
+        color: aliceblue;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .navLinks li {
+        list-style: none;
+    }
+
+        .navLinks li:hover {
+            background-color: grey;
+        }
+
+.toggleButton {
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.toggle-button .bar {
+    height: 3px;
+    width: 100px;
+    background-color: white;
+    background-radius: 10px;
+}
