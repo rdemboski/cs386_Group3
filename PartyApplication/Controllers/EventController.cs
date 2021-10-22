@@ -60,5 +60,18 @@ namespace PartyApplication.Controllers
             return Ok($"Party {id} was deleted successfully");
         }
 
+        [HttpGet]
+        [Route("searchparty/{zipcode}")]
+        public async Task<IActionResult> GetPartiesByZipcode([FromRoute] string zipcode)
+        {
+
+            List<Event> events = await _partyDbService.GetPartiesAsync($"SELECT * FROM c WHERE c.zipcode = '{zipcode}'");
+            if(events!=null)
+            {
+                return Ok(events);
+            }
+            return StatusCode(StatusCodes.Status500InternalServerError);
+        }
+
     }
 }
