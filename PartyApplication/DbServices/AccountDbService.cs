@@ -20,7 +20,6 @@ namespace PartyApplication.DbServices
 
         public async Task AddAccountAsync(Account account)
         {
-            string id = "hello";
             if(account!=null)
             {
                 try
