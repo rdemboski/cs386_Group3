@@ -38,17 +38,18 @@ namespace PartyApplication.Controllers
 
         [HttpPost]
         [Route("newparty")]
-        public ActionResult NewParty([FromBody] Event party)
+        public ActionResult NewParty([FromForm] Event party)
         {
+            party.Id = party.Name;
             if (party != null)
             {
                 _partyDbService.AddPartyAsync(party);
-                return Ok();
+                return View("GetParty", party);
             }
             return StatusCode(StatusCodes.Status500InternalServerError);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         [Route("delete/{id}")]
         public ActionResult DeleteParty([FromRoute] string id)
         {

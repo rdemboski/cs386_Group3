@@ -22,7 +22,10 @@
                 @Html.DisplayNameFor(model => model.Zipcode)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Address)
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time)
             </th>
             <th></th>
         </tr>
@@ -40,9 +43,15 @@
                 @Html.DisplayFor(modelItem => item.Zipcode)
             </td>
             <td>
+                @Html.DisplayNameFor(model => model.Location)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.Time)
+            </td>
+            <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                <a href="@item.Id">Details</a>|
+                <a href="delete/@item.Id">Delete</a>
             </td>
         </tr>
 }

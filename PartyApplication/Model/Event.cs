@@ -14,8 +14,11 @@ namespace PartyApplication.Model
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
-        [JsonProperty(PropertyName = "address")]
-        public string Address { get; set; }
+        [JsonProperty(PropertyName = "location")]
+        public string Location { get; set; }
+
+        [JsonProperty(PropertyName = "time")]
+        public string Time { get; set; }
 
         [JsonProperty(PropertyName = "zipcode")]
         public string Zipcode { get; set; }
