@@ -73,5 +73,12 @@ namespace PartyApplication.Controllers
             return StatusCode(StatusCodes.Status500InternalServerError);
         }
 
+        [HttpGet]
+        [Route("parties/createevent")]
+        public IActionResult CreateEvent()
+        {
+            return View();
+        }
+
     }
 }
