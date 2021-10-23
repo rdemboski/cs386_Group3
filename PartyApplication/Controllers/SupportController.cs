@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using PartyApplication.IDbServices;
+using PartyApplication.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,17 +11,29 @@ namespace PartyApplication.Controllers
 {
     public class SupportController : Controller
     {
-        private readonly IEventDbService _partyDbService;
-        public SupportController(IEventDbService partyDbService)
+        private readonly ISupportDbService _supportDbService;
+        public SupportController(ISupportDbService supportDbService)
         {
-            _partyDbService = partyDbService;
+            _supportDbService = supportDbService;
         }
 
         [HttpGet]
-        [Route("Support/SubmitTicket")]
+        [Route("SubmitTicket")]
         public IActionResult SubmitTicket()
         {
             return View();
+        }
+
+        [HttpPost]
+        [Route("Submitted")]
+        public ActionResult NewTicket([FromForm] Support ticket)
+        {
+            if(ticket != null)
+            {
+                _supportDbService.AddSupportAsync(ticket);
+                return View("SubmitTicket");
+            }
+            return StatusCode(StatusCodes.Status500InternalServerError);
         }
     }
 }

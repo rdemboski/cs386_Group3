@@ -9,9 +9,9 @@ namespace PartyApplication.Model
     public class Support
     {
         [JsonProperty(PropertyName = "id")]
-        public string SupportFormId { get; set; }
+        public string Id { get; set; }
 
         [JsonProperty(PropertyName = "message")]
-        public string TicketMessage { get; set; }
+        public string Message { get; set; }
     }
 }

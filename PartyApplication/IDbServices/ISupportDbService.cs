@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PartyApplication.IDbServices
 {
-    interface ISupportDbService
+    public interface ISupportDbService
     {
         Task AddSupportAsync(Support item);
     }
