@@ -26,7 +26,7 @@ namespace PartyApplication.Controllers
             return View(events);
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         [Route("party/{id}")]
 
         public async Task<ActionResult> GetParty([FromRoute] string id)
