@@ -27,7 +27,7 @@ namespace PartyApplication.DbServices
             {
                 try
                 {
-                    await this._container.CreateItemAsync<Support>(item, new PartitionKey(item.id.ToString()));
+                    await this._container.CreateItemAsync<Support>(item, new PartitionKey(item.Id.ToString()));
                 }
                 catch (Exception ex)
                 {
