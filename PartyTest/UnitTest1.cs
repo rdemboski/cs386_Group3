@@ -78,4 +78,92 @@ namespace PartyTest
             Assert.False(testLogin(existingAccount, falseInput));
         }
     }
+
+    public class EventTest
+    {
+        public Event NewPartyTest(Event party)
+        {
+            party.Id = party.Name;
+            if(party != null)
+            {
+                return party;
+            }
+            return null;
+        }
+
+        public List<Event> GetPartiesByZipcodeTest(List<Event> givenEvents, string zipcode)
+        {
+            /*
+             * Analogous to "GetPartiesAsync" query in EventController
+             */
+            List<Event> events = new List<Event>();
+            for(int i = 0; i < givenEvents.Count; i++)
+            {
+                if(givenEvents[i].Zipcode == zipcode)
+                {
+                    events.Add(givenEvents[i]);
+                }
+            }
+            if(events!=null)
+            {
+                return events;
+            }
+            return null;
+        }
+
+        [Fact]
+        public void NewParty()
+        {
+            Event party = new Event();
+            party.Name = "test";
+            party.Id = party.Name;
+
+            Assert.Equal(party, NewPartyTest(party));
+        }
+
+        [Fact]
+        public void GetPartiesByZipcode()
+        {
+            List<Event> testEvents = new List<Event>();
+            Event test1 = new Event(), test2 = new Event(), test3 = new Event();
+            test1.Zipcode = "1234";
+            test1.Name = "Wrong";
+
+            test2.Zipcode = "86001";
+            test2.Name = "Correct1";
+
+            test3.Zipcode = "86001";
+            test3.Name = "Correct2";
+
+            testEvents.Add(test1);
+            testEvents.Add(test2);
+            testEvents.Add(test1);
+            testEvents.Add(test3);
+
+            Assert.NotEmpty(GetPartiesByZipcodeTest(testEvents, "86001"));
+            Assert.Equal("86001", GetPartiesByZipcodeTest(testEvents, "86001")[0].Zipcode);
+        }
+    }
+
+    public class SupportTests
+    {
+        public Support TestNewTicket(Support ticket)
+        {
+            if(ticket != null)
+            {
+                return ticket;
+            }
+            return null;
+        }
+
+        [Fact]
+        public void NewTicket()
+        {
+            Support test = new Support();
+            test.Id = "test";
+            test.Message = "message";
+
+            Assert.Equal(test, TestNewTicket(test));
+        }
+    }
 }
