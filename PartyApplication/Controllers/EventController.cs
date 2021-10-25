@@ -18,12 +18,17 @@ namespace PartyApplication.Controllers
             _partyDbService = partyDbService;
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("parties")]
-        public async Task<IActionResult> GetParties()
+        public async Task<IActionResult> GetPartiesByZipcode([FromForm] string zipcode)
         {
-            List<Event> events = await _partyDbService.GetPartiesAsync($"SELECT * FROM c");
-            return View(events);
+
+            List<Event> events = await _partyDbService.GetPartiesAsync($"SELECT * FROM c WHERE c.zipcode = '{zipcode}'");
+            if (events != null)
+            {
+                return View("GetParties", events);
+            }
+            return StatusCode(StatusCodes.Status500InternalServerError);
         }
 
         [HttpGet("{id}")]
@@ -61,24 +66,54 @@ namespace PartyApplication.Controllers
             return Ok($"Party {id} was deleted successfully");
         }
 
-        [HttpGet]
-        [Route("searchparty/{zipcode}")]
-        public async Task<IActionResult> GetPartiesByZipcode([FromRoute] string zipcode)
-        {
 
-            List<Event> events = await _partyDbService.GetPartiesAsync($"SELECT * FROM c WHERE c.zipcode = '{zipcode}'");
-            if(events!=null)
-            {
-                return Ok(events);
-            }
-            return StatusCode(StatusCodes.Status500InternalServerError);
-        }
 
         [HttpGet]
         [Route("parties/createevent")]
         public IActionResult CreateEvent()
         {
             return View();
+        }
+
+
+
+        //
+        //
+        //
+        //
+        //
+        //
+        // THESE METHODS ONLY RETURN HTML
+        // NOTHING ELSE
+        [HttpGet]
+        [Route("events")]
+        public ActionResult Events()
+        {
+            return View();
+        }
+        //
+        //
+        //
+        //
+        //
+        //
+        ///
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //  this method is for testing ALL parties in DB
+
+        [HttpGet]
+        [Route("allparties")]
+        public async Task<IActionResult> GetParties()
+        {
+            List<Event> events = await _partyDbService.GetPartiesAsync($"SELECT * FROM c");
+            return Ok(events);
         }
 
     }
