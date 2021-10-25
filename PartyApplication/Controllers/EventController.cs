@@ -13,9 +13,12 @@ namespace PartyApplication.Controllers
     public class EventController : Controller
     {
         private readonly IEventDbService _partyDbService;
-        public EventController(IEventDbService partyDbService)
+
+        private readonly IAccountDbService _accountDbService;
+        public EventController(IEventDbService partyDbService, IAccountDbService accountDbService)
         {
             _partyDbService = partyDbService;
+            _accountDbService = accountDbService;
         }
 
         [HttpPost]
@@ -48,7 +51,13 @@ namespace PartyApplication.Controllers
             party.Id = party.Name;
             if (party != null)
             {
+
                 _partyDbService.AddPartyAsync(party);
+
+                party.TimeCreated = DateTime.UtcNow;
+
+                // TODO: once a party is found look up user by the name of the person who added it
+                // this will allow the object to be a account object
                 return View("GetParty", party);
             }
             return StatusCode(StatusCodes.Status500InternalServerError);
