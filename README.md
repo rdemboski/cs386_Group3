@@ -1,4 +1,4 @@
-# Social Square
+# Social Square - Version 0.5.0
 A CS386 group project
 
 # Description
