@@ -48,7 +48,8 @@ namespace PartyApplication.Controllers
         [Route("newparty")]
         public ActionResult NewParty([FromForm] Event party)
         {
-            party.Id = party.Name;
+            Guid guid = Guid.NewGuid();
+            party.Id = guid.ToString();
             if (party != null)
             {
 
