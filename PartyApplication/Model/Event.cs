@@ -23,5 +23,9 @@ namespace PartyApplication.Model
         [JsonProperty(PropertyName = "zipcode")]
         public string Zipcode { get; set; }
 
+        [JsonProperty(PropertyName = "timecreated")]
+
+        public DateTime TimeCreated { get; set; }
+
     }
 }
