@@ -123,7 +123,7 @@ namespace PartyApplication.Controllers
         public async Task<IActionResult> GetParties()
         {
             List<Event> events = await _partyDbService.GetPartiesAsync($"SELECT * FROM c");
-            return Ok(events);
+            return View("GetParties", events);
         }
 
     }
