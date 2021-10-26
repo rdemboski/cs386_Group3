@@ -88,4 +88,4 @@ Note: Stock image used as placeholder.\
 After finally constructing the MVP for our product, we learned that it was a very tedious process to get the development environment (Visual Studio and GitHub integration) up and running correctly with our project, and we should have prepared earlier for that. In the final stages of our MVP development the process felt much better and more fluid when we all got the hang of our development environment and workflow. Now that we all have an understanding of the system and built a foundation to expand from, we think the development for the next implementation will go more smoothly.
 
 # 11. Demo
-TODO
+Link: https://youtu.be/7FaHa9HUC28
