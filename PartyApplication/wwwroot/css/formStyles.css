@@ -1,0 +1,52 @@
+﻿body {
+    
+}
+
+
+.form {
+    background-color: #e7b0ff;
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    list-style-type: none;
+    padding: 0;
+    border-radius: 10px;
+    
+}
+
+.menuButton {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 5px;
+}
+
+.heading{
+    text-align: center;
+}
+
+.form-row {
+    display: flex;
+    justify-content: center;
+    padding: .5em;
+}
+
+.form-row > label {
+    padding: .5em 1em .5em 0;
+    flex: 1;
+  }
+
+.form-row > input {
+    flex: 2;
+}
+
+.form-row > input,
+.form-row > button {
+    padding: .5em;
+}
+
+.form-row > button {
+    background: gray;
+    color: white;
+    border: 0;
+}

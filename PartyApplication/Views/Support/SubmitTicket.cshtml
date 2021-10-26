@@ -9,19 +9,32 @@
     <meta charset="utf-8">
     <title>SocialSquare</title>
     <link href="~/css/partyApplicationStyles.css" rel="stylesheet" type="text/css">
+    <link href="~/css/formStyles.css" rel="stylesheet" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
 </head>
 
-<h1> Submit a Support Ticket</h1>
-<form method="POST" action="Submitted">
-    <label for="email">E-Mail:</label><br />
-    <input type="text" id="id" name="id" /><br />
+<div class="form">
+    
+    <h1 class="heading"> Submit a Support Ticket</h1>
+    
 
-    <label for="issue">Isssue:</label><br />
-    <input type="text" id="message" name="message" /><br />
+    <form method="POST" action="Submitted">
+            
+        <li class="form-row">
+            <label for="email">E-Mail:</label><br />
+            <input type="text" id="id" name="id" class="input-field" /><br />
+        </li>
+        <li class="form-row">
+            <label for="issue">Isssue:</label><br />
+            <input type="text" id="message" name="message" class="input-field" /><br />
+        </li>
+        <li class="form-row">
+            <button type="Submit">Submit</button>
+        </li>
+       
 
-    <input type="submit" value="Submit" />
+    </form>
 
-</form>
+</div>
