@@ -1,5 +1,5 @@
 # Social Square - Version 0.5.0
-A CS386 group project
+CS-386 Group Project for Group 3
 
 # Description
 SocialSquare is an event organizing website that is made to make it easy to make and attend events. 
@@ -11,7 +11,7 @@ The following are packages installed within Microsoft Visual Studio
 - Microsoft.Azure.Cosmos
 - xUnit
 
-# Instillation 
+# Installation 
 - [Microsoft.AspNetCore](https://dotnet.microsoft.com/download)
 - [Microsoft.NETCore](https://dotnet.microsoft.com/download)
 - [Microsoft.Azure.Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
