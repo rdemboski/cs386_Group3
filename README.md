@@ -2,7 +2,7 @@
 CS-386 Group Project for Group 3
 
 # Description
-SocialSquare is an event organizing website that is made to make it easy to make and attend events. 
+Social Square is an event organizing website that is made to make it easy to host and attend events. 
 
 # Requirements
 The following are packages installed within Microsoft Visual Studio
