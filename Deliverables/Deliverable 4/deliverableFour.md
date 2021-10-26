@@ -75,7 +75,14 @@ https://github.com/rdemboski/cs386_Group3/blob/main/LICENSE
 - Contributing: https://github.com/rdemboski/cs386_Group3/blob/main/CONTRIBUTING.md
 
 # 9. Look & Feel
-TODO
+We wanted the website to have a similar feel in a web browser to social media websites like Facebook. The navigation bar was designed to get the user to every major part of the website easily, while looking professional and with colors and text fonts that aren’t distracting to the user. The same can be said for the rest of the website’s art style.
+
+Screenshots:
+![Picture of the home page](lookImage1.png)\
+Note: Stock image used as placeholder.\
+![Picture of the login page](lookImage2.png)\
+![Picture of the support page](lookImage3.png)
+
 
 # 10. Lessons Learned
 After finally constructing the MVP for our product, we learned that it was a very tedious process to get the development environment (Visual Studio and GitHub integration) up and running correctly with our project, and we should have prepared earlier for that. In the final stages of our MVP development the process felt much better and more fluid when we all got the hang of our development environment and workflow. Now that we all have an understanding of the system and built a foundation to expand from, we think the development for the next implementation will go more smoothly.

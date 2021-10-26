@@ -4,6 +4,10 @@
     ViewData["Title"] = "GetParties";
 }
 
+<head>
+    <link rel="stylesheet" href="~/css/partyStyle.css">
+</head>
+
 <h1>GetParties</h1>
 
 <p>
@@ -12,16 +16,16 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
+            <th class="name">
                 @Html.DisplayNameFor(model => model.Name)
             </th>
-            <th>
+            <th class="zip">
                 @Html.DisplayNameFor(model => model.Zipcode)
             </th>
-            <th>
+            <th class="location">
                 @Html.DisplayNameFor(model => model.Location)
             </th>
-            <th>
+            <th class="time">
                 @Html.DisplayNameFor(model => model.Time)
             </th>
             <th></th>
@@ -30,19 +34,19 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            <td class="name">
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
-            <td>
+            <td class="zip">
                 @Html.DisplayFor(modelItem => item.Zipcode)
             </td>
-            <td>
+            <td class="location">
                 @Html.DisplayFor(modelItem => item.Location)
             </td>
-            <td>
+            <td class="time">
                 @Html.DisplayFor(modelItem => item.Time)
             </td>
-            <td>
+            <td class="options">
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                 <a href="@item.Id">Details</a>|
                 <a href="delete/@item.Id">Delete</a>
