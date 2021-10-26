@@ -1,0 +1,49 @@
+﻿thead {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.table {
+    width: 95%;
+    background-color: #e7b0ff;
+    border-radius: 10px;
+    border: 1px solid #e5e5e5;
+    margin: auto;
+}
+
+.id {
+    display: none;
+    border: none;
+}
+
+.table th {
+    border-left: 1px solid #e5e5e5;
+}
+
+tbody tr td {
+    margin-left: 5px;
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.name {
+    width: 20%;
+}
+
+.zip {
+    width: 20%;
+}
+
+.location {
+    width: 20%;
+}
+
+.time {
+    width: 20%;
+}
+
+.options {
+    width: 20%;
+    margin-right: 5px;
+    text-align: right;
+}
