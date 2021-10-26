@@ -4,31 +4,45 @@
     ViewData["Title"] = "NewAccount";
 
 }
+<head>
+    <link href="~/css/formStyles.css" rel="stylesheet" type="text/css">
+</head>
 
-<h1>CreateAccount</h1>
+<div class="form">
+    <h1 class="heading">CreateAccount</h1>
 
-<form method="POST" action="/account/new">
-    <label for="username">Username:</label><br />
-    <input type="text" id="username" name="username" /><br />
+    <form method="POST" action="/account/new">
+        <li class="form-row">
+            <label for="username">Username:</label><br />
+            <input type="text" id="username" name="username" /><br />
+        </li>
+        <li class="form-row">
+            <label for="name">Name:</label><br />
+            <input type="text" id="name" name="name" /><br />
+        </li>
+        <li class="form-row">
+            <label for="passcode">Passcode:</label><br />
+            <input type="password" id="passcode" name="passcode" /><br />
+        </li>
+        <li class="form-row">
+            <label for="location">Location:</label><br>
+            <input type="text" id="location" name="location" /><br />
+        </li>
+        <li class="form-row">
+            <label for="zipcode">Zipcode:</label><br>
+            <input type="text" id="zipcode" name="zipcode" /><br />
+        </li>
+        <li class="form-row">
+            <label for="host">Do you want to be a host?</label><br />
+        </li>
+            @Html.CheckBox("host", false)
 
-    <label for="name">Name:</label><br />
-    <input type="text" id="name" name="name" /><br />
+            <input type="hidden" id="followers" name="followers" value="0" />
+            <input type="hidden" id="following" name="following" value="0" />
 
-    <label for="passcode">Passcode:</label><br />
-    <input type="password" id="passcode" name="passcode" /><br />
+        <li class="form-row">
+            <button type="Submit">Submit</button>
+        </li>
 
-    <label for="location">Location:</label><br>
-    <input type="text" id="location" name="location" /><br />
-
-    <label for="zipcode">Zipcode:</label><br>
-    <input type="text" id="zipcode" name="zipcode" /><br />
-
-    <label for="host">Do you want to be a host?</label><br />
-    @Html.CheckBox("host", false)
-
-    <input type="hidden" id="followers" name="followers" value="0" />
-    <input type="hidden" id="following" name="following" value="0" />
-
-    <input type="submit" value="Submit" />
-
-</form>
+    </form>
+</div>

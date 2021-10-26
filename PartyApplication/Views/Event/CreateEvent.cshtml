@@ -6,26 +6,38 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <link href="~/css/formStyles.css" rel="stylesheet" type="text/css">
+
     <title>Create an Event</title>
 </head>
 
 <body>
-    <h1>Create New Event</h1>
-    <form method="POST" action="/newparty">
-        <label for="Event Name">Event Name:</label><br>
-        <input type="text" id="name" name="name" /><br>
+    <div class="form">
+        <h1 class="heading">Create New Event</h1>
 
-        <label for="">Location:</label><br>
-        <input type="text" id="location" name="location" /><br />
+        <form method="POST" action="/newparty">
+            <li class="form-row">
+                <label for="Event Name">Event Name:</label><br>
+                <input type="text" id="name" name="name" /><br>
+            </li>
+            <li class="form-row">
+                <label for="">Location:</label><br>
+                <input type="text" id="location" name="location" /><br />
+            </li>
+            <li class="form-row">
+                <label for="Time of Event">Time:</label><br>
+                <input type="text" id="time" name="time" /><br />
+            </li>
+            <li class="form-row">
+                <label for="zipcode">Zipcode:</label><br>
+                <input type="text" id="zipcode" name="zipcode" /><br />
+            </li>
 
-        <label for="Time of Event">Time:</label><br>
-        <input type="text" id="time" name="time" /><br />
-
-        <label for="zipcode">Zipcode:</label><br>
-        <input type="text" id="zipcode" name="zipcode" /><br />
-
-        <input type="submit" value="Create Event" />
-    </form>
+            <li class="form-row">
+                <button type="Submit">Create Event</button>
+            </li>
+        </form>
+    </div>
 </body>
 </html>
 
