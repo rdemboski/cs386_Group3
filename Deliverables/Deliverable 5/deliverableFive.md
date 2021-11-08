@@ -17,7 +17,7 @@ Users in this system are represented by a model and communicate with the present
 ![Image of Class Diagram](ClassDiagram.PNG)
 
 # 4. Sequence Diagram
-![Image of Sequence Diagram](SequenceDiagram.PNG)
+![Image of Sequence Diagram](SequenceDiagram.png)
 
 # 5. Design Patterns
 ![Imagine of Pattern 1](pattern1.jpg)
