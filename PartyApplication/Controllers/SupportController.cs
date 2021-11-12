@@ -24,14 +24,21 @@ namespace PartyApplication.Controllers
             return View();
         }
 
+        [HttpGet]
+        [Route("TicketSubmitted")]
+        public ActionResult Submitted()
+        {
+            return View("Submitted");
+        }
+
         [HttpPost]
         [Route("Submitted")]
-        public ActionResult NewTicket([FromForm] Support ticket)
+        public ActionResult SubmitTicket([FromForm] Support ticket)
         {
             if(ticket != null)
             {
                 _supportDbService.AddSupportAsync(ticket);
-                return View("SubmitTicket");
+                return Submitted();
             }
             return StatusCode(StatusCodes.Status500InternalServerError);
         }
