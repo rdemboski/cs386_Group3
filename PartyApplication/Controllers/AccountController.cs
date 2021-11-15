@@ -3,9 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using PartyApplication.IDbServices;
 using PartyApplication.Model;
 using System;
+using System.Web;
 using System.Collections.Generic;
+using System.Security.Claims;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 
 namespace PartyApplication.Controllers
 {
@@ -19,11 +22,20 @@ namespace PartyApplication.Controllers
         }
 
         [HttpGet]
-        [Route("account/{username}")]
-        public async Task<ActionResult> GetAccount(string username)
+        [Route("account/")]
+        public async Task<ActionResult> GetAccount()
         {
-            Account result = await _accountDbService.GetAccountAsync(username);
-            return Ok(result);
+            var username = HttpContext.User.Identity.Name;
+
+            try
+            {
+                Account result = await _accountDbService.GetAccountAsync(username);
+                return View(result);
+            }
+            catch (Exception ex) 
+            {
+                return StatusCode(StatusCodes.Status401Unauthorized);
+            }
         }
 
         [HttpPost]
@@ -54,7 +66,22 @@ namespace PartyApplication.Controllers
                         if (account.Username == user.Username &&
                                             account.Passcode == user.Passcode)
                         {
-                            return View("GetAccount", user);
+                            var role = "Attendee";
+
+                            if( user.Host )
+                            {
+                                role = "Host";
+                            }
+
+                            var claims = new List<Claim>
+                            {
+                                new Claim("name", user.Username),
+                                new Claim("role", role)
+                            };
+
+                            await HttpContext.SignInAsync(new ClaimsPrincipal(new ClaimsIdentity(claims, "Cookies", "name", "role")));
+
+                            return Redirect("/");
                         }
                     }
                     return View("LoginPage");
@@ -82,6 +109,14 @@ namespace PartyApplication.Controllers
         public IActionResult CreateAccount()
         {
             return View();
+        }
+
+        [HttpGet]
+        [Route("account/logout")]
+        public async Task<ActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return Redirect("/");
         }
 
     }

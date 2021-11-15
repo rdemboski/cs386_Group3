@@ -28,10 +28,25 @@
 
             </li>
             <li>
-                @Html.ActionLink("Login", "LoginPage", "Account")
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    @Html.ActionLink("Login", "LoginPage", "Account");
+                }
+                else
+                {
+                    @Html.ActionLink("Account", "GetAccount", "Account")
+                    //<a href="account/@User.Identity.Name">Account</a>
+                }
             </li>
             <li>
-                <a href="#">Placeholder</a>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @Html.ActionLink("Logout", "Logout", "Account");
+                }
+                else
+                {
+                    <a href="#">Placeholder</a>
+                }
             </li>
         </ul>
     </nav>

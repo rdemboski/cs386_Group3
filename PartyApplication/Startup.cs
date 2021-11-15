@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -15,6 +17,7 @@ namespace PartyApplication
 {
     public class Startup
     {
+        public const string CookieScheme = "Cookies";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -26,6 +29,13 @@ namespace PartyApplication
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddAuthentication(CookieScheme)
+                .AddCookie(CookieScheme, options =>
+                {
+                    options.AccessDeniedPath = "/account/denied";
+                    options.LoginPath = "/account/loginpage/";
+                });
 
             services.AddSingleton<IEventDbService>(InitializeEventClientInstanceAsync(Configuration.GetSection("EventDb")).GetAwaiter().GetResult());
             services.AddSingleton<IAccountDbService>(InitializeAccountClientInstanceAsync(Configuration.GetSection("AccountDb")).GetAwaiter().GetResult());
@@ -52,6 +62,7 @@ namespace PartyApplication
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
