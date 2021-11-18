@@ -22,14 +22,12 @@ namespace PartyApplication.Controllers
         }
 
         [HttpGet]
-        [Route("account/")]
-        public async Task<ActionResult> GetAccount()
+        [Route("account/{id}")]
+        public async Task<ActionResult> GetAccount([FromRoute] String id)
         {
-            var username = HttpContext.User.Identity.Name;
-
             try
             {
-                Account result = await _accountDbService.GetAccountAsync(username);
+                Account result = await _accountDbService.GetAccountAsync(id);
                 return View(result);
             }
             catch (Exception ex) 
@@ -75,7 +73,7 @@ namespace PartyApplication.Controllers
 
                             var claims = new List<Claim>
                             {
-                                new Claim("name", user.Username),
+                                new Claim("name", user.Id),
                                 new Claim("role", role)
                             };
 

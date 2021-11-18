@@ -34,8 +34,7 @@
                 }
                 else
                 {
-                    @Html.ActionLink("Account", "GetAccount", "Account")
-                    //<a href="account/@User.Identity.Name">Account</a>
+                    @Html.ActionLink("Account", "GetAccount", "Account", new { id = User.Identity.Name })
                 }
             </li>
             <li>
