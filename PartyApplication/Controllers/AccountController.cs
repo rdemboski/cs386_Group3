@@ -117,5 +117,47 @@ namespace PartyApplication.Controllers
             return Redirect("/");
         }
 
+
+
+
+
+
+
+
+
+
+        //
+        //
+        //
+        ////
+        //////
+        //////
+        ///////
+        /////
+        ///
+        [HttpGet]
+        [Route("allaccounts")]
+
+        public async Task<IActionResult> GetAccount()
+        {
+            List<Account> accounts= await _accountDbService.GetAccountsAsync($"SELECT * FROM c");
+            return Ok(accounts);
+        }
+
+        [HttpDelete]
+        [Route("accounts/delete/{id}")]
+
+        public ActionResult DeleteAccount([FromRoute] string id)
+        {
+            if (id == null)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+            _accountDbService.DeleteAccountAsync(id);
+            return Ok($"Account {id} was deleted successfully");
+        }
+        
+
     }
+
 }
