@@ -12,6 +12,10 @@
     <h1 class="heading">CreateAccount</h1>
 
     <form method="POST" action="/account/new">
+
+        <input type="hidden" id="followers" name="followers" value="0" />
+        <input type="hidden" id="following" name="following" value="0" />
+
         <li class="form-row">
             <label for="username">Username:</label><br />
             <input type="text" id="username" name="username" /><br />
@@ -35,11 +39,9 @@
         <li class="form-row">
             <label for="host">Do you want to be a host?</label><br />
         </li>
-            @Html.CheckBox("host", false)
-
-            <input type="hidden" id="followers" name="followers" value="0" />
-            <input type="hidden" id="following" name="following" value="0" />
-
+        <li class="form-row">
+            @Html.CheckBoxFor(m => m.Host)
+        </li>
         <li class="form-row">
             <button type="Submit">Submit</button>
         </li>
