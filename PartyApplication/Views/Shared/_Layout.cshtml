@@ -34,7 +34,7 @@
                 }
                 else
                 {
-                    @Html.ActionLink("Account", "GetAccount", "Account", new { id = User.Identity.Name })
+                    @Html.ActionLink("Account", "ManageAccount", "Account", new { id = User.Identity.Name })
                 }
             </li>
             <li>
@@ -44,7 +44,7 @@
                 }
                 else
                 {
-                    <a href="#">Placeholder</a>
+                    @Html.ActionLink("Create Account", "CreateAccount", "Account");
                 }
             </li>
         </ul>

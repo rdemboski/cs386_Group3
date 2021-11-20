@@ -1,14 +1,21 @@
 ﻿@model PartyApplication.Model.Account
 
 @{
-    ViewData["Title"] = "Profile Page";
+    ViewData["Title"] = "ManageAccount";
 }
 
-<h1>@Html.DisplayFor(model => model.Name)'s Profile</h1>
+<h1>ManageAccount</h1>
 
 <div>
+    <h4>Account</h4>
     <hr />
     <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
         </dt>
@@ -34,6 +41,18 @@
             @Html.DisplayFor(model => model.ZipCode)
         </dd>
         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Passcode)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Passcode)
+        </dd>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Followers)
         </dt>
         <dd class = "col-sm-10">
@@ -49,14 +68,10 @@
 </div>
 
 <div>
-    @Html.ActionLink("View " + Model.Name + "'s events", "LinkPartiesById", "Event", new { hostName = Model.Username }, null)
+    @Html.ActionLink("View your public profile", "GetAccount", "Account", new { id = User.Identity.Name })
 </div>
 
 <div>
-    <h4>Follow @Html.DisplayFor(model => model.Name)</h4>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
 </div>
-
-<div>
-    <h4>Rate @Html.DisplayFor(model => model.Name)</h4>
-</div>
-

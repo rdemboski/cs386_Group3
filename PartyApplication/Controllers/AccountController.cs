@@ -36,6 +36,21 @@ namespace PartyApplication.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("account/manage/{id}")]
+        public async Task<ActionResult> ManageAccount([FromRoute] String id)
+        {
+            try
+            {
+                Account result = await _accountDbService.GetAccountAsync(id);
+                return View(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status401Unauthorized);
+            }
+        }
+
         [HttpPost]
         [Route("account/new")]
         public ActionResult NewAccount([FromForm] Account account)
@@ -45,7 +60,7 @@ namespace PartyApplication.Controllers
             if (account != null)
              {
                 _accountDbService.AddAccountAsync(account);
-                return View("GetAccount", account);
+                return View("ManageAccount", account);
             }
             return StatusCode(StatusCodes.Status500InternalServerError);
         }

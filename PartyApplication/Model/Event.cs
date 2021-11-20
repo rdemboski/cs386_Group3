@@ -24,8 +24,9 @@ namespace PartyApplication.Model
         public string Zipcode { get; set; }
 
         [JsonProperty(PropertyName = "timecreated")]
-
         public DateTime TimeCreated { get; set; }
 
+        [JsonProperty(PropertyName = "hostusername")]
+        public string HostUsername { get; set; }
     }
 }
