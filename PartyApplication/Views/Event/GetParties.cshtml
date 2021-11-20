@@ -48,7 +48,7 @@
             </td>
             <td class="options">
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                <a href="@item.Id">Details</a>|
+                @Html.ActionLink("Details", "GetParty", "Event", new { id = item.Id }, null) |
                 <a href="delete/@item.Id">Delete</a>
             </td>
         </tr>

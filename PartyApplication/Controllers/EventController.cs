@@ -21,7 +21,7 @@ namespace PartyApplication.Controllers
         {
             public static string searchedZipcode = "";
         }
-        
+
 
         public EventController(IEventDbService partyDbService, IAccountDbService accountDbService)
         {
@@ -42,6 +42,16 @@ namespace PartyApplication.Controllers
                 return View("GetParties", events);
             }
             return StatusCode(StatusCodes.Status500InternalServerError);
+        }
+
+
+        [HttpGet]
+        [Route("account/{hostName}/eventlist")]
+        public async Task<IActionResult> LinkPartiesById(string hostName)
+        {
+            List<Event> events = await _partyDbService.GetPartiesAsync($"SELECT * FROM c WHERE c.hostusername = '{hostName}'");
+
+            return View("GetParties", events);
         }
 
 
@@ -119,7 +129,7 @@ namespace PartyApplication.Controllers
             return View();
         }
 
-        
+
 
         //
         //
