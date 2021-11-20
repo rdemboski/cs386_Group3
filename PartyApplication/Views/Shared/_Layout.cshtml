@@ -20,9 +20,12 @@
             <li>
                 @Html.ActionLink("Home", "Index", "Home")
             </li>
+            @if (User.Identity.IsAuthenticated)
+            {
             <li>
                 @Html.ActionLink("Events", "Events", "Event")
             </li>
+            }
             <li>
                 @Html.ActionLink("Get Help!", "SubmitTicket", "Support")
 

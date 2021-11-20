@@ -54,9 +54,8 @@ namespace PartyApplication.Controllers
         [HttpPost]
         [Route("account/new")]
         public ActionResult NewAccount([FromForm] Account account)
-        {
-            Guid guid = Guid.NewGuid(); 
-            account.Id = guid.ToString();
+        { 
+            account.Id = account.Username;
             if (account != null)
              {
                 _accountDbService.AddAccountAsync(account);
