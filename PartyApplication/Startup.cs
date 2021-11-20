@@ -35,7 +35,9 @@ namespace PartyApplication
                 {
                     options.AccessDeniedPath = "/account/denied";
                     options.LoginPath = "/account/loginpage/";
+
                 });
+
 
             services.AddSingleton<IEventDbService>(InitializeEventClientInstanceAsync(Configuration.GetSection("EventDb")).GetAwaiter().GetResult());
             services.AddSingleton<IAccountDbService>(InitializeAccountClientInstanceAsync(Configuration.GetSection("AccountDb")).GetAwaiter().GetResult());

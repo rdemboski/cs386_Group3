@@ -14,6 +14,7 @@ namespace PartyApplication.Controllers
         [Route("home")]
         public IActionResult Index()
         {
+
             return View();
         }
     }

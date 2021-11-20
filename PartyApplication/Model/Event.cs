@@ -27,5 +27,8 @@ namespace PartyApplication.Model
 
         public DateTime TimeCreated { get; set; }
 
+        [JsonProperty(PropertyName = "host")]
+        public string Host { get; set; }
+
     }
 }

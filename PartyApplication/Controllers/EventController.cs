@@ -56,12 +56,13 @@ namespace PartyApplication.Controllers
         }
 
 
-        [HttpGet("{id}")]
+        [HttpGet]
         [Route("party/{id}")]
 
         public async Task<ActionResult> GetParty([FromRoute] string id)
         {
             Event result = await _partyDbService.GetPartyAsync(id);
+            ViewBag.Host = result.Host;
             return View(result);
         }
 
@@ -73,11 +74,13 @@ namespace PartyApplication.Controllers
             Guid guid = Guid.NewGuid();
             party.Id = guid.ToString();
 
+
             // if user has a host account, let them create an event
             if (User.IsInRole("Host"))
             {
                 if (party != null)
                 {
+                    party.Host = Request.Cookies["Username"];
 
                     _partyDbService.AddPartyAsync(party);
 

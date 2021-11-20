@@ -40,8 +40,7 @@ namespace PartyApplication.Controllers
         [Route("account/new")]
         public ActionResult NewAccount([FromForm] Account account)
         {
-            Guid guid = Guid.NewGuid(); 
-            account.Id = guid.ToString();
+            account.Id = account.Name;
             if (account != null)
              {
                 _accountDbService.AddAccountAsync(account);
@@ -78,6 +77,7 @@ namespace PartyApplication.Controllers
                             };
 
                             await HttpContext.SignInAsync(new ClaimsPrincipal(new ClaimsIdentity(claims, "Cookies", "name", "role")));
+                            Response.Cookies.Append("Username", user.Id);
 
                             return Redirect("/");
                         }
@@ -138,7 +138,7 @@ namespace PartyApplication.Controllers
         [HttpGet]
         [Route("allaccounts")]
 
-        public async Task<IActionResult> GetAccount()
+        public async Task<IActionResult> GetAccounts()
         {
             List<Account> accounts= await _accountDbService.GetAccountsAsync($"SELECT * FROM c");
             return Ok(accounts);

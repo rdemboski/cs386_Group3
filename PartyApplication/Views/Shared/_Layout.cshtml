@@ -20,34 +20,40 @@
             <li>
                 @Html.ActionLink("Home", "Index", "Home")
             </li>
-            <li>
-                @Html.ActionLink("Events", "Events", "Event")
-            </li>
-            <li>
-                @Html.ActionLink("Get Help!", "SubmitTicket", "Support")
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li>
 
-            </li>
-            <li>
-                @if (!User.Identity.IsAuthenticated)
-                {
-                    @Html.ActionLink("Login", "LoginPage", "Account");
-                }
-                else
-                {
-                    @Html.ActionLink("Account", "GetAccount", "Account", new { id = User.Identity.Name })
-                }
-            </li>
-            <li>
-                @if (User.Identity.IsAuthenticated)
-                {
-                    @Html.ActionLink("Logout", "Logout", "Account");
-                }
-                else
-                {
-                    <a href="#">Placeholder</a>
-                }
-            </li>
-        </ul>
+                    @Html.ActionLink("Events", "Events", "Event")
+                    
+
+                </li>
+            }
+                <li>
+                    @Html.ActionLink("Get Help!", "SubmitTicket", "Support")
+
+                </li>
+                <li>
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        @Html.ActionLink("Login", "LoginPage", "Account");
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Account", "GetAccount", "Account", new { id = User.Identity.Name })
+                    }
+                </li>
+                <li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        @Html.ActionLink("Logout", "Logout", "Account");
+                    }
+                    else
+                    {
+                        <a href="#">Placeholder</a>
+                    }
+                </li>
+            </ul>
     </nav>
 </header>
 <body>

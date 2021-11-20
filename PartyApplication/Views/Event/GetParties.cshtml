@@ -32,10 +32,14 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
         <tr>
             <td class="name">
                 @Html.DisplayFor(modelItem => item.Name)
+                @{ViewBag.Name = item.Id;
+                }
+
             </td>
             <td class="zip">
                 @Html.DisplayFor(modelItem => item.Zipcode)
@@ -48,7 +52,7 @@
             </td>
             <td class="options">
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                <a href="@item.Id">Details</a>|
+                @Html.ActionLink("Details", "GetParty", "Event", new{id = ViewBag.Name})
                 <a href="delete/@item.Id">Delete</a>
             </td>
         </tr>

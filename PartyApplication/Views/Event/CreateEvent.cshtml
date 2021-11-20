@@ -16,6 +16,7 @@
         <h1 class="heading">Create New Event</h1>
 
         <form method="POST" action="/newparty">
+            <input type="hidden" id="host" name="host" value= @Context.Request.Cookies["Username"]/>
             <li class="form-row">
                 <label for="Event Name">Event Name:</label><br>
                 <input type="text" id="name" name="name" /><br>
