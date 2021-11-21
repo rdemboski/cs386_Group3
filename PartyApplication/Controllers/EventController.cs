@@ -117,7 +117,7 @@ namespace PartyApplication.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
             _partyDbService.DeletePartyAsync(id);
-            return Ok($"Party {id} was deleted successfully");
+            return Redirect("/events");
         }
 
 

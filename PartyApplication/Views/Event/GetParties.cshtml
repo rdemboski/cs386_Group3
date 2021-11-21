@@ -47,9 +47,13 @@
                 @Html.DisplayFor(modelItem => item.Time)
             </td>
             <td class="options">
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "GetParty", "Event", new { id = item.Id }, null) |
-                <a href="delete/@item.Id">Delete</a>
+                @Html.ActionLink("Details", "GetParty", "Event", new { id = item.Id }, null)
+
+                @if (User.Identity.Name.Equals(item.HostUsername))
+                {
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ })
+                    <a href="delete/@item.Id"> Delete </a>
+                }
             </td>
         </tr>
 }

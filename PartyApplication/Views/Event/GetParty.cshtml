@@ -43,6 +43,15 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @if (User.Identity.Name.Equals(Model.HostUsername))
+    {
+        <div>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ })
+        </div>
+        <div>
+            @Html.ActionLink("Delete", "DeleteParty", "Event", new { id = Model.Id }, null)
+        </div>
+    }
+
     @Html.ActionLink("Back to list.", "GetSearchedParties", "Event")
 </div>
