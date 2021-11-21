@@ -17,39 +17,20 @@
 }
 
 .menuButton {
-    margin-left: auto;
-    margin-right: 25%;
-    margin-top: 10px;
-    text-align: right;
+
+    margin: auto;
+    text-align: center;
+    margin-top:5px;
     padding: 10px;
     background-color: #e7b0ff;
     border-radius: 10px;
+    width: 10%;
+
 }
 
-.menuButton a {
-    text-decoration: none;
-    color: #000;
-    font-weight: bold;
-}
-
-.menuButton:hover {
-    background-color: #d7a0ef;
-}
-
-.createEvent {
-    width: 140px;
-}
-
-.backToEvents {
-    width: 170px;
-}
-
-.createAccount {
-    width: 125px;
-}
-
-.heading{
+.heading {
     text-align: center;
+    font-family: 'Bowlby One SC', cursive;
 }
 
 .form-row {
@@ -85,44 +66,28 @@
 
 /*Events List CSS*/
 .container {
-    width: 1000px;
+    width: 30%;
     height: 150px;
     background-color: pink;
     position: relative;
-    margin: 20px;
-    margin-left: 15px;
+    margin: 10px auto;
+    vertical-align: middle;
+    
 }
 
-.imbedded {
-    background-image: url(test.png);
-    height: 110px;
-    width: 130px;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    margin: 20px;
+
+/*Header Style*/
+
+.header {
+
 }
 
-#nameofevent {
-    box-sizing: border-box;
-    padding-left: 175px;
-    padding-top: 50px;
-}
-
-#search {
-    height: 10px;
-    width: 50px;
-    color: white;
-    margin-left: 15px;
-}
-
-/*testing table style*/
-
-
+/*Table Style*/
 .table {
-    width: 50%;
+    width: 100%;
     border-radius: 10px;
-    margin: auto;
+    font-size: 20px;
+    
 }
 
 thead {
@@ -130,30 +95,26 @@ thead {
 }
 
 .table tr td {
-    padding-top: 50px;
+    white-space: nowrap;
     padding-right: 75px;
-    padding-left: 20px;
 }
 
-.name {
-    width: 10px;
-}
-
-.zip {
-    width: 10px;
-}
-
-.location {
-    width: 10px;
-}
-
-.time {
-    width: 10px;
+.data {
+    display: block;
+    width: 15%;
+    
 }
 
 .options {
-    width: 10px;
-    margin-right: 5px;
-    text-align: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }
+
 
