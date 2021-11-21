@@ -78,6 +78,11 @@
     border: 0;
 }
 
+.form-row > button:hover {
+    background: #550;
+    color: white;
+    border: 0;
+
 /*Events List CSS*/
 .container {
     width: 1000px;
