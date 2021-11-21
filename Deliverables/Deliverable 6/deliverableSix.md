@@ -50,6 +50,7 @@ For our code, we decided to have these policies:
    - Keep all use-case code handled by the controller for the corresponding use-case
    - Make CSS and styling consistent throughout the website
    - Provide comments in the code when needed
+   - All code was reviewed by pull requests before being committed to the repository
    - Strictly made functions that followed this template:
       ```c#
       public int dummy(int input)
@@ -57,7 +58,6 @@ For our code, we decided to have these policies:
              return 0;
          }
       ```
-    - All code was reviewed by pull requests before being committed to the repository
 
 
 # 6. Lessons Learned
