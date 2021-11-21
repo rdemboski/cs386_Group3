@@ -10,9 +10,13 @@
 
 <h1>GetParties</h1>
 
+@if (User.IsInRole("Host"))
+   {
 <p>
     <a href="/parties/createevent/">Host an Event</a>
 </p>
+   }
+
 <table class="table">
     <thead>
         <tr>
