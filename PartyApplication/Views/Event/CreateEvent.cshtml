@@ -14,7 +14,7 @@
 <body>
     <div class="form">
         <h1 class="heading">Create New Event</h1>
-
+        <hr />
         <form method="POST" action="/newparty">
             <li class="form-row">
                 <label for="Event Name">Event Name:</label><br>
@@ -43,7 +43,7 @@
         </form>
 
     </div>
-    <div class="menuButton">
+    <div class="menuButton backToEvents">
         @Html.ActionLink("Go back to Event Search", "Events", "Event")
     </div>
 </body>
