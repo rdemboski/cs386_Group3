@@ -2,7 +2,7 @@
     
 }
 
-
+/*Search Bar CSS*/
 .form {
     background-color: #e7b0ff;
     max-width: 50%;
@@ -50,3 +50,78 @@
     color: white;
     border: 0;
 }
+
+/*Events List CSS*/
+.container {
+    width: 1000px;
+    height: 150px;
+    background-color: pink;
+    position: relative;
+    margin: 20px;
+    margin-left: 15px;
+}
+
+.imbedded {
+    background-image: url(test.png);
+    height: 110px;
+    width: 130px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    margin: 20px;
+}
+
+#nameofevent {
+    box-sizing: border-box;
+    padding-left: 175px;
+    padding-top: 50px;
+}
+
+#search {
+    height: 10px;
+    width: 50px;
+    color: white;
+    margin-left: 15px;
+}
+
+/*testing table style*/
+
+
+.table {
+    width: 50%;
+    border-radius: 10px;
+    margin: auto;
+}
+
+thead {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.table tr td {
+    padding-top: 50px;
+    padding-right: 75px;
+    padding-left: 20px;
+}
+
+.name {
+    width: 10px;
+}
+
+.zip {
+    width: 10px;
+}
+
+.location {
+    width: 10px;
+}
+
+.time {
+    width: 10px;
+}
+
+.options {
+    width: 10px;
+    margin-right: 5px;
+    text-align: right;
+}
+

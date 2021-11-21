@@ -129,21 +129,30 @@ namespace PartyApplication.Controllers
             return View();
         }
 
-
-
-        //
-        //
-        //
-        //
-        //
-        //
-        // THESE METHODS ONLY RETURN HTML
-        // NOTHING ELSE
         [HttpGet]
         [Route("events")]
-        public ActionResult Events()
+        public async Task<IActionResult> Events()
         {
-            return View();
+            var userID = HttpContext.User.Identity.Name;
+            Account user = await _accountDbService.GetAccountAsync(userID);
+            List<Event> events = await _partyDbService.GetPartiesAsync($"SELECT * FROM c WHERE c.zipcode = '{user.ZipCode}'");
+            if (events != null)
+            {
+                return View("Events", events);
+            }
+            return StatusCode(StatusCodes.Status500InternalServerError);
+        }
+
+        [HttpPost]
+        [Route("events")]
+        public async Task<IActionResult> Events([FromForm] string zipcode)
+        {
+            List<Event> events = await _partyDbService.GetPartiesAsync($"SELECT * FROM c WHERE c.zipcode = '{zipcode}'");
+            if (events != null)
+            {
+                return View("Events", events);
+            }
+            return StatusCode(StatusCodes.Status500InternalServerError);
         }
         //
         //

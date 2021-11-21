@@ -2,7 +2,12 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    ViewData["Title"] = "GetParties";
 }
+
+@model IEnumerable<PartyApplication.Model.Event>
+
+
 <head>
     <link href="~/css/formStyles.css" rel="stylesheet" type="text/css">
 </head>
@@ -10,7 +15,7 @@
 <h1 class="heading">Discover an Event!!</h1>
 
 <div class="form">
-    <form method="post" action="parties">
+    <form method="post" action="events">
 
         <li class="form-row">
             <label for="zipcode">Search By Zipcode:</label><br />
@@ -21,12 +26,59 @@
         </li>
     </form>
 </div>
+<div class="menuButton">
+    @Html.ActionLink("Make A New Event!", "CreateEvent", "Event")
+</div>
 
-@if (User.IsInRole("Host"))
+<table class="table">
+    <thead>
+        <tr>
+            <th class="name">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th class="zip">
+                @Html.DisplayNameFor(model => model.Zipcode)
+            </th>
+            <th class="location">
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th class="time">
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+</table>
+
+@foreach (var item in Model)
 {
-    <div class="menuButton">
-        @Html.ActionLink("Make A New Event!", "CreateEvent", "Event")
+    <div class="container">
+        <table class="table">
+            <tbody>
+
+
+                <tr>
+                    <td class="name">
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td class="zip">
+                        @Html.DisplayFor(modelItem => item.Zipcode)
+                    </td>
+                    <td class="location">
+                        @Html.DisplayFor(modelItem => item.Location)
+                    </td>
+                    <td class="time">
+                        @Html.DisplayFor(modelItem => item.Time)
+                    </td>
+                    <td class="options">
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        <a href="@item.Id">Details</a>|
+                        <a href="delete/@item.Id">Delete</a>
+                    </td>
+                </tr>
+
+
+            </tbody>
+        </table>
     </div>
 }
-
-

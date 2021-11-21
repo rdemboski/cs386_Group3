@@ -1,49 +1,77 @@
-﻿thead {
-    border-bottom: 1px solid #e5e5e5;
+﻿.container {
+    width: 1000px;
+    height: 150px;
+    background-color: pink;
+    position: relative;
+    margin: 20px;
+    margin-left: 15px;
 }
 
+.imbedded {
+    background-image: url(test.png);
+    height: 110px;
+    width: 130px;
+    position: absolute;
+    top: 10;
+    left: 10;
+    margin: 20px;
+}
+
+#nameofevent {
+    box-sizing: border-box;
+    padding-left: 175px;
+    padding-top: 50px;
+}
+
+body {
+    background-image: url(testbackground.jpg);
+}
+
+#search {
+    height: 10px;
+    width: 50px;
+    color: white;
+    margin-left: 15px;
+}
+
+/*testing table style*/
+
+
 .table {
-    width: 95%;
-    background-color: #e7b0ff;
+    width: 50%;
     border-radius: 10px;
-    border: 1px solid #e5e5e5;
     margin: auto;
 }
 
-.id {
-    display: none;
-    border: none;
+thead {
+    border-bottom: 1px solid #e5e5e5;
 }
 
-.table th {
-    border-left: 1px solid #e5e5e5;
-}
-
-tbody tr td {
-    margin-left: 5px;
-    text-align: left;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
+.table tr td {
+    padding-top: 50px;
+    padding-right: 75px;
+    padding-left: 20px;
+    }
 
 .name {
-    width: 20%;
+    width: 10px;
 }
 
 .zip {
-    width: 20%;
+    width: 10px;
 }
 
 .location {
-    width: 20%;
+    width: 10px;
 }
 
 .time {
-    width: 20%;
+    width: 10px;
 }
 
 .options {
-    width: 20%;
+    width: 10px;
     margin-right: 5px;
     text-align: right;
 }
+

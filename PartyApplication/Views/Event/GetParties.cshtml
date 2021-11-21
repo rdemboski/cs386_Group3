@@ -11,13 +11,12 @@
 <h1>GetParties</h1>
 
 @if (User.IsInRole("Host"))
-   {
+{
 <p>
     <a href="/parties/createevent/">Host an Event</a>
 </p>
-   }
 
-<table class="table">
+    <table class="table">
     <thead>
         <tr>
             <th class="name">
@@ -35,31 +34,39 @@
             <th></th>
         </tr>
     </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td class="name">
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td class="zip">
-                @Html.DisplayFor(modelItem => item.Zipcode)
-            </td>
-            <td class="location">
-                @Html.DisplayFor(modelItem => item.Location)
-            </td>
-            <td class="time">
-                @Html.DisplayFor(modelItem => item.Time)
-            </td>
-            <td class="options">
-                @Html.ActionLink("Details", "GetParty", "Event", new { id = item.Id }, null)
+    </table>
 
-                @if (User.Identity.Name.Equals(item.HostUsername))
-                {
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ })
-                    <a href="delete/@item.Id"> Delete </a>
-                }
-            </td>
-        </tr>
+@foreach (var item in Model)
+{
+    <div class="container">
+        <table class="table">
+            <tbody>
+
+
+                <tr>
+                    <td class="name">
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td class="zip">
+                        @Html.DisplayFor(modelItem => item.Zipcode)
+                    </td>
+                    <td class="location">
+                        @Html.DisplayFor(modelItem => item.Location)
+                    </td>
+                    <td class="time">
+                        @Html.DisplayFor(modelItem => item.Time)
+                    </td>
+                    <td class="options">
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        <a href="@item.Id">Details</a>|
+                        <a href="delete/@item.Id">Delete</a>
+                    </td>
+                </tr>
+
+
+            </tbody>
+        </table>
+    </div>
 }
-    </tbody>
-</table>
+}
+
