@@ -53,7 +53,7 @@
 </div>
 
 <div>
-    <h4>Follow @Html.DisplayFor(model => model.Name)</h4>
+    <h4>@Html.ActionLink("Follow", "Follow", "Account", new { id = Model.Username }) @Html.DisplayFor(model => model.Name)</h4>
 </div>
 
 <div>

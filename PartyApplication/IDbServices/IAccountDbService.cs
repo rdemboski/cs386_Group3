@@ -20,6 +20,8 @@ namespace PartyApplication.IDbServices
 
         Task<Account> GetAccountAsync(string id);
 
+        Task UpdateAccountAsync(Account account);
+
         Task DeleteAccountAsync(string id);
 
         Task<List<Account>> GetAccountsAsync(string queryString);
