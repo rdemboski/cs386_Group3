@@ -78,39 +78,32 @@ namespace PartyApplication.DbServices
             }
         }
 
-            /*THIS IS FOR HOSTS PART OF THE CONTROLLER ONLY*/
-            //
-            //
-            //
-            //
-
-            public async Task<Account> GetHostAsync(string id)
+        public async Task UpdateHostRating(Account user)
+        {
+            try
             {
-                try
-                {
-                    ItemResponse<Account> response = await this._container.ReadItemAsync<Account>(id, new PartitionKey(id));
-                    return response.Resource;
-                }
-                catch (CosmosException ex) when (ex.StatusCode == System.Net.HttpStatusCode.NotFound)
-                {
-                    return null;
-                }
+                await this._container.UpsertItemAsync<Account>(user, new PartitionKey(user.Id));
             }
-
-            public async Task<List<Account>> GetHostsByZipcode(string queryString)
+            catch (Exception ex)
             {
-                using (FeedIterator<Account> query = this._container.GetItemQueryIterator<Account>(new QueryDefinition(queryString)))
-                {
-                    List<Account> list = new List<Account>();
-                    while (query.HasMoreResults)
-                    {
-                        FeedResponse<Account> response = await query.ReadNextAsync();
-
-                        list.AddRange(response.ToList());
-                    }
-                    return list;
-                }
+                Console.WriteLine(ex);
             }
         }
+
+        public double CalculateRating(List<Event> events)
+        {
+            double total = 0;
+            double divisor = 0;
+            int i = 0;
+            while (i < events.Count)
+            {
+                total += events[i].TotalRatings;
+                divisor += events[i].NumRatings;
+                i++;
+            }
+            return (total / divisor);
+        }
+
     }
+}
 

@@ -23,6 +23,10 @@ namespace PartyApplication.Model
         [JsonProperty(PropertyName = "host")]
         public Boolean Host { get; set; }
 
+        [JsonProperty(PropertyName = "hostrating")]
+
+        public double HostRating { get; set; }
+
         [JsonProperty(PropertyName = "zipcode")]
         public string ZipCode { get; set; }
 
@@ -37,6 +41,8 @@ namespace PartyApplication.Model
 
         [JsonProperty(PropertyName = "following")]
         public List<String> Following { get; set; }
+
+
 
     }
 

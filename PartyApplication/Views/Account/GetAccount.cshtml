@@ -45,6 +45,15 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Following)
         </dd>
+        @if (User.IsInRole("Host"))
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.HostRating)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.HostRating)
+            </dd>
+        }
     </dl>
 </div>
 <div>

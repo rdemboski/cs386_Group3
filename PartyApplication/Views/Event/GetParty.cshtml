@@ -40,6 +40,12 @@
         <dd class="col-sm-10">
             @Html.ActionLink(Model.HostUsername, "GetAccount", "Account", new { id = Model.HostUsername }, null)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rating)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rating)
+        </dd>
     </dl>
 </div>
 <div>
@@ -52,6 +58,18 @@
             @Html.ActionLink("Delete", "DeleteParty", "Event", new { id = Model.Id }, null)
         </div>
     }
+    <div>
+        <form method="POST" action="events/rate">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <input type="checkbox" name="star" value=1> 1 Star
+            <input type="checkbox" name="star" value=2> 2 Star
+            <input type="checkbox" name="star" value=3> 3 Star
+            <input type="checkbox" name="star" value=4> 4 Star
+            <input type="checkbox" name="star" value=5> 5 Star
+            <button type="Submit">Submit</button>
 
-    @Html.ActionLink("Back to list.", "GetSearchedParties", "Event")
+        </form>
+    </div>
+
+    @Html.ActionLink("Back to list", "Events", "Event")
 </div>

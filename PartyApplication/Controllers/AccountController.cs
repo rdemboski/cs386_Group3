@@ -15,10 +15,12 @@ namespace PartyApplication.Controllers
     public class AccountController : Controller
     {
         private readonly IAccountDbService _accountDbService;
+        private readonly IEventDbService _partyDbService;
 
-        public AccountController(IAccountDbService accountDbService)
+        public AccountController(IAccountDbService accountDbService, IEventDbService partyDbService)
         {
             _accountDbService = accountDbService;
+            _partyDbService = partyDbService;
         }
 
         [HttpGet]
@@ -27,7 +29,17 @@ namespace PartyApplication.Controllers
         {
             try
             {
+                List<Event> events = await _partyDbService.GetPartiesAsync($"SELECT * FROM c WHERE c.hostusername = '{id}'");
+                
                 Account result = await _accountDbService.GetAccountAsync(id);
+                if (events != null)
+                {
+
+                    result.HostRating = _accountDbService.CalculateRating(events);
+
+                    await _accountDbService.UpdateHostRating(result);
+                }
+                /*result.HostRating = await _partyDbService*/
                 return View(result);
             }
             catch (Exception ex) 
@@ -160,6 +172,8 @@ namespace PartyApplication.Controllers
             await HttpContext.SignOutAsync();
             return Redirect("/");
         }
+
+
 
 
 
