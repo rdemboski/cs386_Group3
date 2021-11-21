@@ -1,5 +1,4 @@
-﻿@model PartyApplication.Model.Account
-@*
+﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
@@ -53,9 +52,9 @@
             </li>
         </ul>
         @if (Context.User.Identity.IsAuthenticated)
-            {
-                <h4>User: @Html.DisplayFor(user => Context.User.Identity.Name)</h4>
-            }
+        {
+            <h4>User: @Html.DisplayFor(user => Context.User.Identity.Name)</h4>
+        }
     </nav>
 </header>
 <body>
