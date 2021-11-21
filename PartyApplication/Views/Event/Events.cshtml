@@ -10,6 +10,10 @@
 
 <head>
     <link href="~/css/formStyles.css" rel="stylesheet" type="text/css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap" rel="stylesheet">
 </head>
 
 <h1 class="heading">Discover an Event!!</h1>
@@ -30,49 +34,42 @@
     @Html.ActionLink("Make A New Event!", "CreateEvent", "Event")
 </div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th class="name">
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th class="zip">
-                @Html.DisplayNameFor(model => model.Zipcode)
-            </th>
-            <th class="location">
-                @Html.DisplayNameFor(model => model.Location)
-            </th>
-            <th class="time">
-                @Html.DisplayNameFor(model => model.Time)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-</table>
-
 @foreach (var item in Model)
 {
     <div class="container">
         <table class="table">
             <tbody>
-
-
                 <tr>
-                    <td class="name">
+                    <td class="data">
+                        
+                            Name:
+                        
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
-                    <td class="zip">
-                        @Html.DisplayFor(modelItem => item.Zipcode)
+                    <td class="data">
+                        
+                            Zip:
+                        
+                         @Html.DisplayFor(modelItem => item.Zipcode)
                     </td>
-                    <td class="location">
+                    <td class="data">
+                        
+                            Location:
+                        
                         @Html.DisplayFor(modelItem => item.Location)
                     </td>
-                    <td class="time">
+                    <td class="data">
+                        
+                            Time:
+                        
                         @Html.DisplayFor(modelItem => item.Time)
                     </td>
+                    
+                </tr>
+                <tr>
                     <td class="options">
                         @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                        <a href="@item.Id">Details</a>|
+                        <a href="@item.Id">Details</a> |
                         <a href="delete/@item.Id">Delete</a>
                     </td>
                 </tr>
