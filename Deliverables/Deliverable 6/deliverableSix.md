@@ -9,6 +9,7 @@ events as well as access your account and the support page to create a ticket.. 
 up as a host you have the ability to create and delete events as well as all abilities given to
 the attendee. Another feature we added was the ability for all registered users to filter events based off of their respective area codes. Lastly we created a home page that gives the user an introduction to Social Square and allows for easy navigation throughout the rest of the website.
 
+
 # 2. Implemented Requirements
 - Requirement: Users can create and manage their account \
  Issue: https://trello.com/c/UV4Owc9t/ \
@@ -29,10 +30,17 @@ the attendee. Another feature we added was the ability for all registered users 
  Approved by: 
 
 - Requirement: Users can add other users to their followers/favorites list \
- Issue: https://trello.com/c/L5JFlN20/31-implement-favoriting-following \
+ Issue: https://trello.com/c/L5JFlN20/ \
  Pull Request: https://github.com/rdemboski/cs386_Group3/pull/56 \
  Implemented by: Monika Beckham \
  Approved by: Shayne Sellner
+
+- Requirement: Events are linked to the host account user that made the event \
+ Issue: https://trello.com/c/35XR05LN/ \
+ Pull Request: https://github.com/rdemboski/cs386_Group3/pull/51 \
+ Implemented by: Ryan Demboski \
+ Approved by: Brett Lewerke
+
 
 # 3. Tests
 - xUnit
@@ -49,6 +57,7 @@ For our code, we decided to have these policies:
    - Model-View-Controller (MVC) design pattern
    - Keep all use-case code handled by the controller for the corresponding use-case
    - Make CSS and styling consistent throughout the website
+   - User id's are also their usernames to help with multiple functions in the controllers
    - Provide comments in the code when needed
    - All code was reviewed by pull requests before being committed to the repository
    - Strictly made functions that followed this template:
