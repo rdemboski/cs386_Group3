@@ -3,55 +3,63 @@
 @{
     ViewData["Title"] = "GetParty";
 }
+<head>
+    <meta charset="utf-8">
+    <title>SocialSquare</title>
+    <link href="~/css/getParty.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+</head>
+<h1 class="center">Event Details</h1>
 
-<h1>GetParty</h1>
-
-<div>
-    <h4>Event</h4>
+<div class="center">
     <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
+    <dl class="main">
+        <dt class="name">
             @Html.DisplayNameFor(model => model.Name)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="item">
             @Html.DisplayFor(model => model.Name)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="name">
             @Html.DisplayNameFor(model => model.Zipcode)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="item">
             @Html.DisplayFor(model => model.Zipcode)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="name">
             @Html.DisplayNameFor(model => model.Location)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="item">
             @Html.DisplayFor(model => model.Location)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="name">
             @Html.DisplayNameFor(model => model.Time)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="item">
             @Html.DisplayFor(model => model.Time)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="name">
             @Html.DisplayNameFor(model => model.HostUsername)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="item">
             @Html.ActionLink(Model.HostUsername, "GetAccount", "Account", new { id = Model.HostUsername }, null)
         </dd>
     </dl>
 </div>
-<div>
+<div class="center">
     @if (User.Identity.Name.Equals(Model.HostUsername))
     {
-        <div>
+        <div class="button">
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ })
         </div>
-        <div>
+        <div class=" button">
             @Html.ActionLink("Delete", "DeleteParty", "Event", new { id = Model.Id }, null)
         </div>
     }
+    <div class="button">
+        @Html.ActionLink("Back to list.", "GetSearchedParties", "Event")
 
-    @Html.ActionLink("Back to list.", "GetSearchedParties", "Event")
+    </div>
 </div>
