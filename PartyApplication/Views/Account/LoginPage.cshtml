@@ -3,28 +3,32 @@
 @{
     ViewData["Title"] = "LoginPage";
 }
+<!DOCTYPE html>
+<html>
 <head>
     <link href="~/css/formStyles.css" rel="stylesheet" type="text/css">
 </head>
+<body>
+    <div class="form">
+        <h1 class="heading">Login Page</h1>
+        <hr />
+        <form method="POST" action="/account/login">
+            <li class="form-row">
+                <label for="username">Username:</label><br>
+                <input type="text" id="username" name="username"><br>
+            </li>
+            <li class="form-row">
+                <label for="passcode">Passcode:</label><br>
+                <input type="password" id="passcode" name="passcode">
+            </li>
 
-<h1 class="heading">Login Page</h1>
-
-<div class="form">
-    <form method="POST" action="/account/login">
-        <li class="form-row">
-            <label for="username">Username:</label><br>
-            <input type="text" id="username" name="username"><br>
-        </li>
-        <li class="form-row">
-            <label for="passcode">Passcode:</label><br>
-            <input type="password" id="passcode" name="passcode">
-        </li>
-
-        <li class="form-row">
-            <button type="Submit">Submit</button>
-        </li>
-    </form>
-</div>
-<div class="menuButton">
-    <a href="/account/createaccount/">Create an account</a>
-</div>
+            <li class="form-row">
+                <button type="Submit">Submit</button>
+            </li>
+        </form>
+    </div>
+    <div class="menuButton createAccount">
+        <a href="/account/createaccount/">Create an account</a>
+    </div>
+</body>
+</html>
