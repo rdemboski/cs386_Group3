@@ -30,7 +30,7 @@ the attendee. Another feature we added was the ability for all registered users 
  Approved by: 
 
 - Requirement: Users can add other users to their followers/favorites list \
- Issue: https://trello.com/c/L5JFlN20/31-implement-favoriting-following \
+ Issue: https://trello.com/c/L5JFlN20/ \
  Pull Request: https://github.com/rdemboski/cs386_Group3/pull/56 \
  Implemented by: Monika Beckham \
  Approved by: Shayne Sellner
