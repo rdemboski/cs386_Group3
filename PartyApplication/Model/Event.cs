@@ -28,5 +28,16 @@ namespace PartyApplication.Model
 
         [JsonProperty(PropertyName = "hostusername")]
         public string HostUsername { get; set; }
+
+        [JsonProperty(PropertyName = "rating")]
+        public double Rating { get; set; }
+
+        [JsonProperty(PropertyName = "numratings")]
+
+        public int NumRatings { get; set; }
+
+        [JsonProperty(PropertyName ="totalratings")]
+
+        public double TotalRatings { get; set; }
     }
 }

@@ -6,8 +6,8 @@
 }
 
 @model IEnumerable<PartyApplication.Model.Event>
-
-
+<!DOCTYPE html>
+<html>
 <head>
     <link href="~/css/formStyles.css" rel="stylesheet" type="text/css">
 
@@ -15,24 +15,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap" rel="stylesheet">
 </head>
+<body>
+    <div class="form">
+        <h1 class="heading">Discover an Event!!</h1>
+        <hr />
+        <form method="post" action="events">
 
-<h1 class="heading">Discover an Event!!</h1>
+            <li class="form-row">
+                <label for="zipcode">Search By Zipcode:</label><br />
+                <input type="text" id="zipcode" name="zipcode" /><br />
+            </li>
+            <li class="form-row">
+                <button type="Submit">Submit</button>
+            </li>
+        </form>
+    </div>
+    <div class="menuButton createEvent">
+        @Html.ActionLink("Make A New Event!", "CreateEvent", "Event")
+    </div>
 
-<div class="form">
-    <form method="post" action="events">
-
-        <li class="form-row">
-            <label for="zipcode">Search By Zipcode:</label><br />
-            <input type="text" id="zipcode" name="zipcode" /><br />
-        </li>
-        <li class="form-row">
-            <button type="Submit">Submit</button>
-        </li>
-    </form>
-</div>
-<div class="menuButton">
-    @Html.ActionLink("Make A New Event!", "CreateEvent", "Event")
-</div>
 
 @foreach (var item in Model)
 {
@@ -75,7 +76,10 @@
                 </tr>
 
 
-            </tbody>
-        </table>
-    </div>
-}
+
+                </tbody>
+            </table>
+        </div>
+    }
+</body>
+</html>

@@ -22,18 +22,18 @@ namespace PartyApplication.DbServices
 
         public async Task AddPartyAsync(Event item)
         {
-            
-            if(item != null)
+
+            if (item != null)
             {
                 try
                 {
                     await this._container.CreateItemAsync<Event>(item, new PartitionKey(item.Id.ToString()));
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Console.WriteLine(ex);
                 }
-                
+
             }
         }
 
@@ -71,20 +71,23 @@ namespace PartyApplication.DbServices
 
                 return list;
             }
-            
 
-/*            using (FeedIterator<MyItem> feedIterator = this.Container.GetItemQueryIterator<MyItem>(
-    queryDefinition))
-            {
-                while (feedIterator.HasMoreResults)
-                {
-                    FeedResponse<MyItem> response = await feedIterator.ReadNextAsync();
-                    foreach (var item in response)
-                    {
-                        Console.WriteLine(item);
-                    }
-                }
-            }*/
         }
+
+        public async Task UpdateRatingAsync(Event party, double num)
+        {
+            party.NumRatings += 1;
+            party.TotalRatings += num;
+            party.Rating = party.TotalRatings / party.NumRatings;
+            try
+            {
+                await this._container.UpsertItemAsync<Event>(party, new PartitionKey(party.Id));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+
     }
 }

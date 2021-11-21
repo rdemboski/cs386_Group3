@@ -1,0 +1,69 @@
+﻿.center {
+    width: 50%;
+    margin: auto;
+}
+
+/*.main {
+    background-color: #e7b0ff;
+    padding: 5px;
+    border: solid;
+    border-radius: 10px;
+    margin: auto;
+    width: 50%;
+} */
+
+
+.main {
+    display: inline-block;
+    overflow: hidden;
+    text-align: left;
+    background-color: #e7b0ff;
+    padding: 10px;
+    border: solid;
+    border-radius: 10px;
+    width: 50%;
+    margin: auto;
+}
+
+    .main dt, .data_table dd {
+        margin: 0;
+        margin-bottom: 2px;
+        display: inline;
+    }
+
+    .main dt {
+        padding-right: 8px;
+        font-size: 2em;
+        text-align: center;
+    }
+
+    .main dd:after {
+        content: '';
+        display: block;
+    }
+
+.item {
+    padding: 6px;
+    border: solid;
+    border-width: 3px;
+    border-color: black;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.33em; 
+}
+
+.name {
+     font-size: 2em;
+    text-align: center;
+}
+
+.button {
+    background-color: lightgray;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}

@@ -15,10 +15,12 @@ namespace PartyApplication.Controllers
     public class AccountController : Controller
     {
         private readonly IAccountDbService _accountDbService;
+        private readonly IEventDbService _partyDbService;
 
-        public AccountController(IAccountDbService accountDbService)
+        public AccountController(IAccountDbService accountDbService, IEventDbService partyDbService)
         {
             _accountDbService = accountDbService;
+            _partyDbService = partyDbService;
         }
 
         [HttpGet]
@@ -27,7 +29,17 @@ namespace PartyApplication.Controllers
         {
             try
             {
+                List<Event> events = await _partyDbService.GetPartiesAsync($"SELECT * FROM c WHERE c.hostusername = '{id}'");
+                
                 Account result = await _accountDbService.GetAccountAsync(id);
+                if (events != null)
+                {
+
+                    result.HostRating = _accountDbService.CalculateRating(events);
+
+                    await _accountDbService.UpdateHostRating(result);
+                }
+                /*result.HostRating = await _partyDbService*/
                 return View(result);
             }
             catch (Exception ex) 
@@ -65,16 +77,55 @@ namespace PartyApplication.Controllers
         }
 
         [HttpGet]
+        [Route("account/edit/{id}")]
+        public async Task<ActionResult> EditAccount([FromRoute] String id)
+        {
+            Account result = await _accountDbService.GetAccountAsync(id);
+            return View(result);
+        }
+
+
+        [HttpPost]
+        [Route("account/edit")]
+        public async Task<ActionResult> EditAccount([FromForm] Account account)
+        {
+            Account original = await _accountDbService.GetAccountAsync(User.Identity.Name);
+            account.Followers = new List<String>(original.Followers);
+            account.Following = new List<String>(original.Following);
+            account.Id = original.Id;
+
+            await _accountDbService.UpdateAccountAsync(account);
+            return View("ManageAccount", account);
+        }
+
+        [HttpGet]
         [Route("account/{id}/follow")]
         public async Task<IActionResult> Follow([FromRoute] String id)
         {
             Account following = await _accountDbService.GetAccountAsync(User.Identity.Name);
             Account followed = await _accountDbService.GetAccountAsync(id);
 
-            if( following.Id != followed.Id && !followed.Followers.Contains(following.Name))
+            if( following.Id != followed.Id && !followed.Followers.Contains(following.Id))
             {
-                following.Following.Add(followed.Name);
-                followed.Followers.Add(following.Name);
+                following.Following.Add(followed.Id);
+                followed.Followers.Add(following.Id);
+                await _accountDbService.UpdateAccountAsync(followed);
+                await _accountDbService.UpdateAccountAsync(following);
+            }
+            return View("GetAccount", followed);
+        }
+
+        [HttpGet]
+        [Route("account/{id}/unfollow")]
+        public async Task<IActionResult> Unfollow([FromRoute] String id)
+        {
+            Account following = await _accountDbService.GetAccountAsync(User.Identity.Name);
+            Account followed = await _accountDbService.GetAccountAsync(id);
+
+            if (following.Id != followed.Id && followed.Followers.Contains(following.Id))
+            {
+                following.Following.Remove(followed.Id);
+                followed.Followers.Remove(following.Id);
                 await _accountDbService.UpdateAccountAsync(followed);
                 await _accountDbService.UpdateAccountAsync(following);
             }
@@ -160,6 +211,8 @@ namespace PartyApplication.Controllers
             await HttpContext.SignOutAsync();
             return Redirect("/");
         }
+
+
 
 
 

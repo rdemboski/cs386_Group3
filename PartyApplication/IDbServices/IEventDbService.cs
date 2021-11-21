@@ -12,5 +12,6 @@ namespace PartyApplication.IDbServices
         Task<Event> GetPartyAsync(string id);
         Task AddPartyAsync(Event item);
         Task DeletePartyAsync(string id);
+        Task UpdateRatingAsync(Event party, double num);
     }
 }
