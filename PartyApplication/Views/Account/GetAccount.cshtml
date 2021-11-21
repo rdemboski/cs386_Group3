@@ -46,13 +46,25 @@
             @Html.DisplayNameFor(model => model.Followers)
         </dt>
         <dd class="item">
-            @Html.DisplayFor(model => model.Followers)
+            @foreach (String item in Model.Followers)
+            {
+                if (item != null)
+                {
+                    @Html.ActionLink(item, "GetAccount", "Account", new { id = item })<br />
+                }
+            }
         </dd>
         <dt class="name">
             @Html.DisplayNameFor(model => model.Following)
         </dt>
         <dd class="item">
-            @Html.DisplayFor(model => model.Following)
+            @foreach (String item in Model.Following)
+            {
+                if (item != null)
+                {
+                    @Html.ActionLink(item, "GetAccount", "Account", new { id = item })<br />
+                }
+            }
         </dd>
     </dl>
 </div>
@@ -77,7 +89,14 @@
 @if (User.Identity.Name != Model.Id)
 {
     <div>
+        @if( Model.Followers.Contains(User.Identity.Name))
+        {
+        <h4>@Html.ActionLink("Unfollow", "Unfollow", "Account", new { id = Model.Username }) @Html.DisplayFor(model => model.Name)</h4>
+        }
+        else
+        {
         <h4>@Html.ActionLink("Follow", "Follow", "Account", new { id = Model.Username }) @Html.DisplayFor(model => model.Name)</h4>
+        }
     </div>
 
     <div>

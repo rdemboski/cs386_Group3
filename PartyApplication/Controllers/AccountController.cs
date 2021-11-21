@@ -93,10 +93,27 @@ namespace PartyApplication.Controllers
             Account following = await _accountDbService.GetAccountAsync(User.Identity.Name);
             Account followed = await _accountDbService.GetAccountAsync(id);
 
-            if( following.Id != followed.Id && !followed.Followers.Contains(following.Name))
+            if( following.Id != followed.Id && !followed.Followers.Contains(following.Id))
             {
-                following.Following.Add(followed.Name);
-                followed.Followers.Add(following.Name);
+                following.Following.Add(followed.Id);
+                followed.Followers.Add(following.Id);
+                await _accountDbService.UpdateAccountAsync(followed);
+                await _accountDbService.UpdateAccountAsync(following);
+            }
+            return View("GetAccount", followed);
+        }
+
+        [HttpGet]
+        [Route("account/{id}/unfollow")]
+        public async Task<IActionResult> Unfollow([FromRoute] String id)
+        {
+            Account following = await _accountDbService.GetAccountAsync(User.Identity.Name);
+            Account followed = await _accountDbService.GetAccountAsync(id);
+
+            if (following.Id != followed.Id && followed.Followers.Contains(following.Id))
+            {
+                following.Following.Remove(followed.Id);
+                followed.Followers.Remove(following.Id);
                 await _accountDbService.UpdateAccountAsync(followed);
                 await _accountDbService.UpdateAccountAsync(following);
             }
