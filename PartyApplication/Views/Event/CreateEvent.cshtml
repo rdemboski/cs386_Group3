@@ -34,8 +34,7 @@
             </li>
 
             <li class="form-row">
-                <label for="zipcode">Your account username:</label><br>
-                <input type="text" id="hostusername" name="hostusername" /><br />
+                <input type="hidden" id="hostusername" name="hostusername" value=@Html.DisplayFor(user => Context.User.Identity.Name) readonly/><br />
             </li>
 
             <li class="form-row">
