@@ -20,9 +20,12 @@
             <li>
                 @Html.ActionLink("Home", "Index", "Home")
             </li>
-            <li>
-                @Html.ActionLink("Events", "Events", "Event")
-            </li>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li>
+                    @Html.ActionLink("Events", "Events", "Event")
+                </li>
+            }
             <li>
                 @Html.ActionLink("Get Help!", "SubmitTicket", "Support")
 
@@ -34,8 +37,7 @@
                 }
                 else
                 {
-                    @Html.ActionLink("Account", "GetAccount", "Account")
-                    //<a href="account/@User.Identity.Name">Account</a>
+                    @Html.ActionLink("Account", "ManageAccount", "Account", new { id = User.Identity.Name })
                 }
             </li>
             <li>
@@ -45,10 +47,14 @@
                 }
                 else
                 {
-                    <a href="#">Placeholder</a>
+                    @Html.ActionLink("Create Account", "CreateAccount", "Account");
                 }
             </li>
         </ul>
+        @if (Context.User.Identity.IsAuthenticated)
+        {
+            <h4>User: @Html.DisplayFor(user => Context.User.Identity.Name)</h4>
+        }
     </nav>
 </header>
 <body>

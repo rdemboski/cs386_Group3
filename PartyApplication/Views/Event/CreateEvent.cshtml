@@ -34,10 +34,14 @@
             </li>
 
             <li class="form-row">
+                <input type="hidden" id="hostusername" name="hostusername" value=@Html.DisplayFor(user => Context.User.Identity.Name) readonly/><br />
+            </li>
+
+            <li class="form-row">
                 <button type="Submit">Create Event</button>
             </li>
         </form>
-        
+
     </div>
     <div class="menuButton">
         @Html.ActionLink("Go back to Event Search", "Events", "Event")

@@ -22,14 +22,12 @@ namespace PartyApplication.Controllers
         }
 
         [HttpGet]
-        [Route("account/")]
-        public async Task<ActionResult> GetAccount()
+        [Route("account/{id}")]
+        public async Task<ActionResult> GetAccount([FromRoute] String id)
         {
-            var username = HttpContext.User.Identity.Name;
-
             try
             {
-                Account result = await _accountDbService.GetAccountAsync(username);
+                Account result = await _accountDbService.GetAccountAsync(id);
                 return View(result);
             }
             catch (Exception ex) 
@@ -38,16 +36,42 @@ namespace PartyApplication.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("account/manage/{id}")]
+        public async Task<ActionResult> ManageAccount([FromRoute] String id)
+        {
+
+            if (User.Identity.Name.Equals(id))
+            {
+                try
+                {
+                    Account result = await _accountDbService.GetAccountAsync(id);
+                    return View(result);
+                }
+
+                catch (Exception ex)
+                {
+                    return StatusCode(StatusCodes.Status401Unauthorized);
+                }
+            
+            }
+
+            else
+            {
+                return Redirect("/home");
+            }
+            
+        }
+
         [HttpPost]
         [Route("account/new")]
         public ActionResult NewAccount([FromForm] Account account)
-        {
-            Guid guid = Guid.NewGuid(); 
-            account.Id = guid.ToString();
+        { 
+            account.Id = account.Username;
             if (account != null)
              {
                 _accountDbService.AddAccountAsync(account);
-                return View("GetAccount", account);
+                return View("ManageAccount", account);
             }
             return StatusCode(StatusCodes.Status500InternalServerError);
         }
@@ -75,7 +99,7 @@ namespace PartyApplication.Controllers
 
                             var claims = new List<Claim>
                             {
-                                new Claim("name", user.Username),
+                                new Claim("name", user.Id),
                                 new Claim("role", role)
                             };
 
@@ -119,5 +143,47 @@ namespace PartyApplication.Controllers
             return Redirect("/");
         }
 
+
+
+
+
+
+
+
+
+
+        //
+        //
+        //
+        ////
+        //////
+        //////
+        ///////
+        /////
+        ///
+        [HttpGet]
+        [Route("allaccounts")]
+
+        public async Task<IActionResult> GetAccount()
+        {
+            List<Account> accounts= await _accountDbService.GetAccountsAsync($"SELECT * FROM c");
+            return Ok(accounts);
+        }
+
+        [HttpDelete]
+        [Route("accounts/delete/{id}")]
+
+        public ActionResult DeleteAccount([FromRoute] string id)
+        {
+            if (id == null)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+            _accountDbService.DeleteAccountAsync(id);
+            return Ok($"Account {id} was deleted successfully");
+        }
+        
+
     }
+
 }

@@ -2,8 +2,9 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Ticket Submitted";
 }
+
 <!doctype html>
 <html>
 <head>
@@ -17,25 +18,9 @@
 </head>
 
 <div class="form">
-    
+
     <h1 class="heading"> Submit a Support Ticket</h1>
-    
 
-    <form method="POST" action="Submitted">
-            
-        <li class="form-row">
-            <label for="email">E-Mail:</label><br />
-            <input type="text" id="id" name="id" class="input-field" /><br />
-        </li>
-        <li class="form-row">
-            <label for="issue">Issue:</label><br />
-            <input type="text" id="message" name="message" class="input-field" /><br />
-        </li>
-        <li class="form-row">
-            <button type="Submit">Submit</button>
-        </li>
-       
-
-    </form>
+    <h2 class="heading"> Ticket Submitted Successfully</h2>
 
 </div>
