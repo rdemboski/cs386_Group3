@@ -8,12 +8,7 @@ namespace PartyApplication.IDbServices
 {
     public interface IAccountDbService
     {
-        // this is to get a enumerable of all hosts in zipcode
-        Task<List<Account>> GetHostsByZipcode(string query);
-
-        // this gives you a specific host by id (which will also be name)
-        Task<Account> GetHostAsync(string id);
-
+        Task UpdateHostRating(Account user);
         // this will add a host to the system
 
         Task AddAccountAsync(Account item);
@@ -25,6 +20,8 @@ namespace PartyApplication.IDbServices
         Task DeleteAccountAsync(string id);
 
         Task<List<Account>> GetAccountsAsync(string queryString);
+
+        double CalculateRating(List<Event> events);
 
     }
 }

@@ -154,6 +154,15 @@ namespace PartyApplication.Controllers
             }
             return StatusCode(StatusCodes.Status500InternalServerError);
         }
+
+        [HttpPost]
+        [Route("events/rate")]
+        public async Task<IActionResult> RateEvent([FromForm] Event party, int star)
+        {
+            party = await _partyDbService.GetPartyAsync(party.Id);
+            await _partyDbService.UpdateRatingAsync(party, star);
+            return Redirect("/events");
+        }
         //
         //
         //
