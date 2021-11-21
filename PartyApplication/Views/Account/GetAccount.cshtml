@@ -9,54 +9,69 @@
 <div>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Name)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Location)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Location)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Host)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Host)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ZipCode)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.ZipCode)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Followers)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Followers)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Following)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Following)
         </dd>
     </dl>
 </div>
-
 <div>
-    @Html.ActionLink("View " + Model.Name + "'s events", "LinkPartiesById", "Event", new { hostName = Model.Username }, null)
-</div>
 
+
+    @if (User.Identity.Name == Model.Id)
+    {
+        @Html.ActionLink("Edit Account", "ManageAccount", "Account", new { id = User.Identity.Name })
+    }
+</div>
 <div>
-    <h4>@Html.ActionLink("Follow", "Follow", "Account", new { id = Model.Username }) @Html.DisplayFor(model => model.Name)</h4>
+    @if (User.Identity.Name == Model.Id)
+    {
+        @Html.ActionLink("View your events", "LinkPartiesById", "Event", new { hostName = Model.Username }, null)
+    }
+    else
+    {
+        @Html.ActionLink("View " + Model.Name + "'s events", "LinkPartiesById", "Event", new { hostName = Model.Username }, null)
+    }
 </div>
+@if (User.Identity.Name != Model.Id)
+{
+    <div>
+        <h4>@Html.ActionLink("Follow", "Follow", "Account", new { id = Model.Username }) @Html.DisplayFor(model => model.Name)</h4>
+    </div>
 
-<div>
-    <h4>Rate @Html.DisplayFor(model => model.Name)</h4>
-</div>
-
+    <div>
+        <h4>Rate @Html.DisplayFor(model => model.Name)</h4>
+    </div>
+}
