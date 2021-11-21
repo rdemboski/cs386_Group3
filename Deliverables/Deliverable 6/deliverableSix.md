@@ -10,28 +10,28 @@ up as a host you have the ability to create and delete events as well as all abi
 the attendee. Another feature we added was the ability for all registered users to filter events based off of their respective area codes. Lastly we created a home page that gives the user an introduction to Social Square and allows for easy navigation throughout the rest of the website.
 
 # 2. Implemented Requirements
-- Requirement: Users can create and manage their account
- Issue: https://trello.com/c/UV4Owc9t/
- Pull Request: https://github.com/rdemboski/cs386_Group3/pull/50
- Implemented by: Brett Lewerke
+- Requirement: Users can create and manage their account \
+ Issue: https://trello.com/c/UV4Owc9t/ \
+ Pull Request: https://github.com/rdemboski/cs386_Group3/pull/50 \
+ Implemented by: Brett Lewerke \
  Approved by: Ryan Demboski
 
-- Requirement: Users can edit their accounts
- Issue: https://trello.com/c/UV4Owc9t/
- Pull Request: https://github.com/rdemboski/cs386_Group3/pull/60
- Implemented by: Monika Beckham
+- Requirement: Users can edit their accounts \
+ Issue: https://trello.com/c/UV4Owc9t/ \
+ Pull Request: https://github.com/rdemboski/cs386_Group3/pull/60 \
+ Implemented by: Monika Beckham \
  Approved by: Ryan Demboski
 
-- Requirement: Users can rate hosts
- Issue: https://trello.com/c/Iei2OKVi/
- Pull Request:
- Implemented by:
- Approved by:
+- Requirement: Users can rate hosts \
+ Issue: https://trello.com/c/Iei2OKVi/ \
+ Pull Request: \
+ Implemented by: \
+ Approved by: 
 
-- Requirement: Users can add other users to their followers/favorites list
- Issue: https://trello.com/c/L5JFlN20/31-implement-favoriting-following
- Pull Request: https://github.com/rdemboski/cs386_Group3/pull/56
- Implemented by: Monika Beckham
+- Requirement: Users can add other users to their followers/favorites list \
+ Issue: https://trello.com/c/L5JFlN20/31-implement-favoriting-following \
+ Pull Request: https://github.com/rdemboski/cs386_Group3/pull/56 \
+ Implemented by: Monika Beckham \
  Approved by: Shayne Sellner
 
 # 3. Tests
