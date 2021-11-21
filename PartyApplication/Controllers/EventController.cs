@@ -51,7 +51,7 @@ namespace PartyApplication.Controllers
         {
             List<Event> events = await _partyDbService.GetPartiesAsync($"SELECT * FROM c WHERE c.hostusername = '{hostName}'");
 
-            return View("GetParties", events);
+            return View("Events", events);
         }
 
 
@@ -62,7 +62,7 @@ namespace PartyApplication.Controllers
         {
             List<Event> events = await _partyDbService.GetPartiesAsync($"SELECT * FROM c WHERE c.zipcode = '{Globals.searchedZipcode}'");
 
-            return View("GetParties", events);
+            return View("Events", events);
         }
 
 
