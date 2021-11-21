@@ -57,6 +57,7 @@ For our code, we decided to have these policies:
    - Model-View-Controller (MVC) design pattern
    - Keep all use-case code handled by the controller for the corresponding use-case
    - Make CSS and styling consistent throughout the website
+   - User id's are also their usernames to help with multiple functions in the controllers
    - Provide comments in the code when needed
    - All code was reviewed by pull requests before being committed to the repository
    - Strictly made functions that followed this template:
