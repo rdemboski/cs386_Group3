@@ -33,10 +33,10 @@ namespace PartyApplication.Model
         public string Passcode { get; set; }
 
         [JsonProperty(PropertyName = "followers")]
-        public int Followers { get; set; }
+        public List<String> Followers { get; set; }
 
         [JsonProperty(PropertyName = "following")]
-        public int Following { get; set; }
+        public List<String> Following { get; set; }
 
     }
 

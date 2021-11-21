@@ -45,7 +45,17 @@ namespace PartyApplication.DbServices
                 return null;
             }
         }
-
+        public async Task UpdateAccountAsync(Account account)
+        {
+            try
+            {
+                await this._container.UpsertItemAsync<Account>(account, new PartitionKey(account.Id));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
         public async Task DeleteAccountAsync(string id)
         {
             await this._container.DeleteItemAsync<Event>(id, new PartitionKey(id));
