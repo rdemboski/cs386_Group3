@@ -40,15 +40,27 @@ namespace PartyApplication.Controllers
         [Route("account/manage/{id}")]
         public async Task<ActionResult> ManageAccount([FromRoute] String id)
         {
-            try
+
+            if (User.Identity.Name.Equals(id))
             {
-                Account result = await _accountDbService.GetAccountAsync(id);
-                return View(result);
+                try
+                {
+                    Account result = await _accountDbService.GetAccountAsync(id);
+                    return View(result);
+                }
+
+                catch (Exception ex)
+                {
+                    return StatusCode(StatusCodes.Status401Unauthorized);
+                }
+            
             }
-            catch (Exception ex)
+
+            else
             {
-                return StatusCode(StatusCodes.Status401Unauthorized);
+                return Redirect("/home");
             }
+            
         }
 
         [HttpPost]
