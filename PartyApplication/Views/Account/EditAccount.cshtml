@@ -1,0 +1,50 @@
+﻿@model PartyApplication.Model.Account
+
+@{
+    ViewData["Title"] = "EditAccount";
+
+}
+<head>
+    <link href="~/css/formStyles.css" rel="stylesheet" type="text/css">
+</head>
+
+<div class="form">
+    <h1 class="heading">EditAccount</h1>
+
+    <form method="POST" action="/account/edit">
+
+        <input type="hidden" id="followers" name="followers" value="" />
+        <input type="hidden" id="following" name="following" value="" />
+
+        <li class="form-row">
+            <label for="username">Username:</label><br />
+            <input type="text" id="username" name="username" value="@Model.Username"/><br />
+        </li>
+        <li class="form-row">
+            <label for="name">Name:</label><br />
+            <input type="text" id="name" name="name" value="@Model.Name"/><br />
+        </li>
+        <li class="form-row">
+            <label for="passcode">Passcode:</label><br />
+            <input type="password" id="passcode" name="passcode" value="@Model.Passcode"/><br />
+        </li>
+        <li class="form-row">
+            <label for="location">Location:</label><br>
+            <input type="text" id="location" name="location" value="@Model.Location"/><br />
+        </li>
+        <li class="form-row">
+            <label for="zipcode">Zipcode:</label><br>
+            <input type="text" id="zipcode" name="zipcode" value="@Model.ZipCode" /><br />
+        </li>
+        <li class="form-row">
+            <label for="host">Do you want to be a host?</label><br />
+        </li>
+        <li class="form-row">
+            @Html.CheckBoxFor(m => m.Host)
+        </li>
+        <li class="form-row">
+            <button type="Submit">Submit</button>
+        </li>
+
+    </form>
+</div>
