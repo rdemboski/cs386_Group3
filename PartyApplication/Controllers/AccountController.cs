@@ -77,6 +77,28 @@ namespace PartyApplication.Controllers
         }
 
         [HttpGet]
+        [Route("account/edit/{id}")]
+        public async Task<ActionResult> EditAccount([FromRoute] String id)
+        {
+            Account result = await _accountDbService.GetAccountAsync(id);
+            return View(result);
+        }
+
+
+        [HttpPost]
+        [Route("account/edit")]
+        public async Task<ActionResult> EditAccount([FromForm] Account account)
+        {
+            Account original = await _accountDbService.GetAccountAsync(User.Identity.Name);
+            account.Followers = new List<String>(original.Followers);
+            account.Following = new List<String>(original.Following);
+            account.Id = original.Id;
+
+            await _accountDbService.UpdateAccountAsync(account);
+            return View("ManageAccount", account);
+        }
+
+        [HttpGet]
         [Route("account/{id}/follow")]
         public async Task<IActionResult> Follow([FromRoute] String id)
         {

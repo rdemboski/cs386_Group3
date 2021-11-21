@@ -4,45 +4,54 @@
     ViewData["Title"] = "Profile Page";
 }
 
-<h1>@Html.DisplayFor(model => model.Name)'s Profile</h1>
+<head>
+    <meta charset="utf-8">
+    <title>SocialSquare</title>
+    <link href="~/css/getParty.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+</head>
 
-<div>
+<h1 class="center">@Html.DisplayFor(model => model.Name)'s Profile</h1>
+
+<div class="center">
     <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
+    <dl class="main">
+        <dt class="name">
             @Html.DisplayNameFor(model => model.Name)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="item">
             @Html.DisplayFor(model => model.Name)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="name">
             @Html.DisplayNameFor(model => model.Location)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="item">
             @Html.DisplayFor(model => model.Location)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="name">
             @Html.DisplayNameFor(model => model.Host)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="item">
             @Html.DisplayFor(model => model.Host)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="name">
             @Html.DisplayNameFor(model => model.ZipCode)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="item">
             @Html.DisplayFor(model => model.ZipCode)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="name">
             @Html.DisplayNameFor(model => model.Followers)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="item">
             @Html.DisplayFor(model => model.Followers)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="name">
             @Html.DisplayNameFor(model => model.Following)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="item">
             @Html.DisplayFor(model => model.Following)
         </dd>
         @if (User.IsInRole("Host"))
