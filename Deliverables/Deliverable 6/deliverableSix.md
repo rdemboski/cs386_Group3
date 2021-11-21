@@ -9,6 +9,7 @@ events as well as access your account and the support page to create a ticket.. 
 up as a host you have the ability to create and delete events as well as all abilities given to
 the attendee. Another feature we added was the ability for all registered users to filter events based off of their respective area codes. Lastly we created a home page that gives the user an introduction to Social Square and allows for easy navigation throughout the rest of the website.
 
+
 # 2. Implemented Requirements
 - Requirement: Users can create and manage their account \
  Issue: https://trello.com/c/UV4Owc9t/ \
@@ -33,6 +34,13 @@ the attendee. Another feature we added was the ability for all registered users 
  Pull Request: https://github.com/rdemboski/cs386_Group3/pull/56 \
  Implemented by: Monika Beckham \
  Approved by: Shayne Sellner
+
+- Requirement: Events are linked to the host account user that made the event \
+ Issue: https://trello.com/c/35XR05LN/ \
+ Pull Request: https://github.com/rdemboski/cs386_Group3/pull/51 \
+ Implemented by: Ryan Demboski \
+ Approved by: Brett Lewerke
+
 
 # 3. Tests
 - xUnit
