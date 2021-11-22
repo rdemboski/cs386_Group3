@@ -31,6 +31,7 @@
 .heading {
     text-align: center;
     font-family: 'Bowlby One SC', cursive;
+    font-weight: bold;
 }
 
 .form-row {
@@ -59,62 +60,10 @@
     border: 0;
 }
 
-.form-row > button:hover {
-    background: #550;
-    color: white;
-    border: 0;
-
-/*Events List CSS*/
-.container {
-    width: 30%;
-    height: 150px;
-    background-color: pink;
-    position: relative;
-    margin: 10px auto;
-    vertical-align: middle;
-    
-}
-
-
-/*Header Style*/
-
-.header {
-
-}
-
-/*Table Style*/
-.table {
-    width: 100%;
-    border-radius: 10px;
-    font-size: 20px;
-    
-}
-
-thead {
-    border-bottom: 1px solid #e5e5e5;
-}
-
-.table tr td {
-    white-space: nowrap;
-    padding-right: 75px;
-}
-
-.data {
-    display: block;
-    width: 15%;
-    
-}
-
-.options {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-}
+    .form-row > button:hover {
+        background: #550;
+        color: white;
+        border: 0;
+    }
 
 

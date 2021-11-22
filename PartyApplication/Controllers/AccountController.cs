@@ -95,7 +95,7 @@ namespace PartyApplication.Controllers
             account.Id = original.Id;
 
             await _accountDbService.UpdateAccountAsync(account);
-            return View("ManageAccount", account);
+            return View("GetAccount", account);
         }
 
         [HttpGet]

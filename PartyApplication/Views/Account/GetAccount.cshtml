@@ -76,39 +76,44 @@
             </dd>
         }
     </dl>
-</div>
-<div>
-
-
-    @if (User.Identity.Name == Model.Id)
-    {
-        @Html.ActionLink("Edit Account", "ManageAccount", "Account", new { id = User.Identity.Name })
-    }
-</div>
-<div>
-    @if (User.Identity.Name == Model.Id)
-    {
-        @Html.ActionLink("View your events", "LinkPartiesById", "Event", new { hostName = Model.Username }, null)
-    }
-    else
-    {
-        @Html.ActionLink("View " + Model.Name + "'s events", "LinkPartiesById", "Event", new { hostName = Model.Username }, null)
-    }
-</div>
-@if (User.Identity.Name != Model.Id)
-{
-    <div>
-        @if( Model.Followers.Contains(User.Identity.Name))
-        {
-        <h4>@Html.ActionLink("Unfollow", "Unfollow", "Account", new { id = Model.Username }) @Html.DisplayFor(model => model.Name)</h4>
-        }
-        else
-        {
-        <h4>@Html.ActionLink("Follow", "Follow", "Account", new { id = Model.Username }) @Html.DisplayFor(model => model.Name)</h4>
-        }
-    </div>
 
     <div>
-        <h4>Rate @Html.DisplayFor(model => model.Name)</h4>
+
+
+        <div class="menuButton">
+            @if (User.Identity.Name == Model.Id)
+            {
+                @Html.ActionLink("Edit Account", "EditAccount", "Account", new { id = User.Identity.Name })
+            }
+        </div>
     </div>
-}
+    <div>
+        <div class="menuButton">
+            @if (User.Identity.Name == Model.Id)
+            {
+                @Html.ActionLink("View your events", "LinkPartiesById", "Event", new { hostName = Model.Username }, null)
+            }
+            else
+            {
+                @Html.ActionLink("View " + Model.Name + "'s events", "LinkPartiesById", "Event", new { hostName = Model.Username }, null)
+            }
+        </div>
+    </div>
+    @if (User.Identity.Name != Model.Id)
+    {
+        <div class="menuButton">
+            @if (Model.Followers.Contains(User.Identity.Name))
+            {
+                <h4>@Html.ActionLink("Unfollow", "Unfollow", "Account", new { id = Model.Username }) @Html.DisplayFor(model => model.Name)</h4>
+            }
+            else
+            {
+                <h4>@Html.ActionLink("Follow", "Follow", "Account", new { id = Model.Username }) @Html.DisplayFor(model => model.Name)</h4>
+            }
+        </div>
+
+        <div>
+            <h4>Rate @Html.DisplayFor(model => model.Name)</h4>
+        </div>
+    }
+</div>
