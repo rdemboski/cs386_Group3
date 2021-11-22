@@ -57,9 +57,7 @@
 <div class="center">
     @if (User.Identity.Name.Equals(Model.HostUsername))
     {
-        <div class="button">
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ })
-        </div>
+        
         <div class=" button">
             @Html.ActionLink("Delete", "DeleteParty", "Event", new { id = Model.Id }, null)
         </div>
@@ -68,7 +66,7 @@
     @if (!Context.User.Identity.Name.Equals(Model.HostUsername))
       {
         <div>
-            <form method="POST" action="events/rate">
+            <form method="POST" action="/events/rate">
                 <input type="hidden" name="id" value="@Model.Id" />
                 <input type="checkbox" name="star" value=1> 1 Star
                 <input type="checkbox" name="star" value=2> 2 Star
