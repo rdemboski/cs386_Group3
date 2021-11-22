@@ -29,3 +29,4 @@ The following are packages installed within Microsoft Visual Studio
 - [Shayne Sellner](https://github.com/shaynesellner)
 - [Brett Lewerke](https://github.com/brettlewerke1)
 - [Ryan Mason](https://github.com/ryantmason)
+- [Connor Mayon](https://github.com/Connor-Mayon)
