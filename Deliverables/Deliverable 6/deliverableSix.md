@@ -25,9 +25,9 @@ the attendee. Another feature we added was the ability for all registered users 
 
 - Requirement: Users can rate hosts \
  Issue: https://trello.com/c/Iei2OKVi/ \
- Pull Request: \
- Implemented by: \
- Approved by: 
+ Pull Request: https://github.com/rdemboski/cs386_Group3/pull/63 \
+ Implemented by: Brett Lewerke \
+ Approved by: Monika Beckham
 
 - Requirement: Users can add other users to their followers/favorites list \
  Issue: https://trello.com/c/L5JFlN20/ \
@@ -45,6 +45,11 @@ the attendee. Another feature we added was the ability for all registered users 
 # 3. Tests
 - xUnit
 - https://github.com/rdemboski/cs386_Group3/tree/main/PartyTest
+- Test case: Logging into an account by matching user input and existing account data. 
+- Class: https://github.com/rdemboski/cs386_Group3/blob/main/PartyApplication/Controllers/AccountController.cs
+- Test:
+https://github.com/rdemboski/cs386_Group3/blob/main/PartyTest/UnitTest1.cs\
+![Image of the specified test](testImage.png)
 
 
 
