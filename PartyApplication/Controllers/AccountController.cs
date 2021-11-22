@@ -140,7 +140,7 @@ namespace PartyApplication.Controllers
             if (account != null)
              {
                 _accountDbService.AddAccountAsync(account);
-                return View("ManageAccount", account);
+                return View("LoginPage");
             }
             return StatusCode(StatusCodes.Status500InternalServerError);
         }
@@ -211,6 +211,7 @@ namespace PartyApplication.Controllers
             await HttpContext.SignOutAsync();
             return Redirect("/");
         }
+
 
 
 

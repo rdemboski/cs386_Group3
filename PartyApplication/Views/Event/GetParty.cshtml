@@ -65,18 +65,22 @@
         </div>
     }
 
-    <div>
-        <form method="POST" action="events/rate">
-            <input type="hidden" name="id" value="@Model.Id" />
-            <input type="checkbox" name="star" value=1> 1 Star
-            <input type="checkbox" name="star" value=2> 2 Star
-            <input type="checkbox" name="star" value=3> 3 Star
-            <input type="checkbox" name="star" value=4> 4 Star
-            <input type="checkbox" name="star" value=5> 5 Star
-            <button type="Submit">Submit</button>
+    @if (!Context.User.Identity.Name.Equals(Model.HostUsername))
+      {
+        <div>
+            <form method="POST" action="events/rate">
+                <input type="hidden" name="id" value="@Model.Id" />
+                <input type="checkbox" name="star" value=1> 1 Star
+                <input type="checkbox" name="star" value=2> 2 Star
+                <input type="checkbox" name="star" value=3> 3 Star
+                <input type="checkbox" name="star" value=4> 4 Star
+                <input type="checkbox" name="star" value=5> 5 Star
+                <button type="Submit">Submit</button>
 
-        </form>
-    </div>
+            </form>
+        </div>
+      }
+    
     <div class="button">
         @Html.ActionLink("Back to list.", "events", "Event")
 
