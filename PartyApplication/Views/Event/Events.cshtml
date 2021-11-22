@@ -10,6 +10,7 @@
 <html>
 <head>
     <link href="~/css/formStyles.css" rel="stylesheet" type="text/css">
+    <link href="~/css/eventStyle.css" rel="stylesheet" type="text/css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +35,7 @@
         @Html.ActionLink("Make A New Event!", "CreateEvent", "Event")
     </div>
 
-
+    <h1 class="heading"> Events near you!</h1>
 @foreach (var item in Model)
 {
     <div class="container">
@@ -69,9 +70,7 @@
                 </tr>
                 <tr>
                     <td class="options">
-                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
 			            @Html.ActionLink("Details", "GetParty", "Event", new { id = item.Id }, null) |
-			            @Html.ActionLink("Delete", "DeleteParty", "Event", new { id = item.Id }, null)
                     </td>
                 </tr>
                 </tbody>
