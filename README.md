@@ -1,7 +1,7 @@
 # Social Square - Version 0.5.0
 CS-386 Group Project for Group 3
 
-https://partyapplication.azurewebsites.net/
+https://partyapplication20211129123249.azurewebsites.net/
 
 # Description
 Social Square is an event organizing website that is made to make it easy to host and attend events. 
