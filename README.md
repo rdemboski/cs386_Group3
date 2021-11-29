@@ -1,4 +1,4 @@
-# Social Square - Version 0.5.0
+# Social Square - Version 1.0.0
 CS-386 Group Project for Group 3
 
 https://partyapplication20211129123249.azurewebsites.net/
