@@ -30,7 +30,7 @@ Bug Reporting: https://github.com/rdemboski/cs386_Group3/issues
 ```c#
 public int dummy(int input)
    {
-      return 0;
+      return input;
    {
 ```
 
