@@ -25,7 +25,7 @@ Bug Reporting: https://github.com/rdemboski/cs386_Group3/issues
 * Go to the “Issues” page in our repository and fill out a new issue form.
 
 ## Style Guide/Coding Conventions
-* be sure to do all programming work inside of Visual Studio for the sake of consistency, and stick to our main languages: HTML, C++, Javascript, and C# at this time. 
+* be sure to do all programming work inside of Visual Studio for the sake of consistency, and stick to our main languages: HTML, CSS, Javascript, and C# at this time. 
 
 ```c#
 public int dummy(int input)
